@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branco Editor - A sua visão, em movimento. Vídeos que contam histórias.</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Configuração de Estilo Customizado -->
+    <style>
+        .font-title {
+            font-family: 'Roboto', sans-serif;
+        }
+        .title-shadow {
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+        .font-sans {
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .youtube-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -100;
+        }
+        .youtube-background iframe {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100vw;
+            height: 56.25vw; /* 100/56.25 = 1.777 (Aspect ratio 16:9) */
+            min-height: 100vh;
+            min-width: 177.77vh; /* 100 * 1.777 */
+            transform: translate(-50%, -50%) scale(1.1);
+            pointer-events: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -50;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-section {
+            animation: fadeIn 1s ease-out forwards;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #141414;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2563EB; /* Cor da barra de rolagem atualizada */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1D4ED8; /* Cor da barra de rolagem no hover */
+        }
+
+        .dark-blue-gradient-text {
+            background: linear-gradient(145deg, #1E3A8A, #3B82F6, #EFF6FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            background-size: 200% 100%;
+            animation: gradient-shine 8s linear infinite;
+        }
+        
+        @keyframes gradient-shine {
+            to {
+                background-position: -200% 0;
+            }
+        }
+        
+        .light-sweep {
+            position: relative;
+            overflow: hidden;
+            -webkit-transform: translateZ(0); 
+            transform: translateZ(0);
+        }
+        .light-sweep::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 60px;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.25) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            top: 0;
+            left: -100px;
+            transform: skewX(-25deg);
+            transition: none;
+        }
+        .light-sweep:hover::before {
+            left: calc(100% + 100px); 
+            transition: left 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        .portfolio-background {
+            position: relative;
+            background-image: url('https://i.postimg.cc/N0GbkJ1v/Chat-GPT-Image-30-de-jun-de-2025-10-37-54.png');
+            background-size: cover;
+            background-position: center 30%; /* Ajustado para focar nos olhos */
+            background-attachment: fixed; /* Efeito Parallax */
+        }
+
+        .portfolio-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(20, 20, 20, 0.85); /* Overlay escuro para legibilidade */
+            z-index: 0;
+        }
+
+        @media (max-width: 768px) {
+            .youtube-background iframe {
+                transform: translate(-50%, -50%) scale(1.05);
+            }
+        }
+        
+    </style>
+</head>
+<body class="bg-[#141414] text-[#F5F5F5] font-sans antialiased">
+
+    <!-- =================================================== -->
+    <!-- SEÇÃO 1: ABERTURA (HERO)                            -->
+    <!-- =================================================== -->
+    <header id="inicio" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        
+        <div class="youtube-background">
+            <iframe 
+                src="https://www.youtube.com/embed/GG7pj3F6ZNw?autoplay=1&mute=1&loop=1&playlist=GG7pj3F6ZNw&controls=0&showinfo=0&autohide=1&modestbranding=1&iv_load_policy=3&rel=0" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media">
+            </iframe>
+        </div>
+
+        <div class="hero-overlay"></div>
+        
+        <div class="relative z-10 px-4">
+            <a href="#portfolio">
+                <h1 class="font-title text-5xl md:text-7xl lg:text-8xl font-bold hover:opacity-90 transition-opacity dark-blue-gradient-text tracking-wider uppercase">
+                    Branco Editor
+                </h1>
+            </a>
+            <p class="mt-4 text-lg md:text-2xl text-[#F5F5F5]" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">
+                A sua visão, em movimento. Vídeos que contam histórias.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- =================================================== -->
+        <!-- SEÇÃO 2: PORTFÓLIO                                  -->
+        <!-- =================================================== -->
+        <section id="portfolio" class="py-20 px-6 sm:px-12 portfolio-background">
+            <div class="max-w-7xl mx-auto relative z-10">
+                <h2 class="text-4xl font-title font-bold text-center mb-2 dark-blue-gradient-text title-shadow uppercase">Portfólio</h2>
+                <p class="text-center text-gray-400 mb-12">Meus trabalhos mais recentes. Clique para assistir.</p>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- ITEM 1 DO PORTFÓLIO -->
+                    <div class="portfolio-item group cursor-pointer" 
+                         data-video-type="youtube" 
+                         data-video-id="w5RqPfy6RRM"
+                         data-title="PAULO MAIA"
+                         data-role="Editor"
+                         data-description="Edição para o vídeo de Paulo Maia, focando em uma narrativa dinâmica e impactante para destacar sua mensagem."
+                         data-skills="Edição Rítmica, Storytelling, Sound Design"
+                         data-software="After Effects">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl hover:shadow-[#2563EB]/20 transition-all duration-300 light-sweep">
+                            <img src="https://img.youtube.com/vi/w5RqPfy6RRM/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/141414/3B82F6?text=PAULO+MAIA';" alt="Thumbnail do vídeo PAULO MAIA" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                               <p class="text-white text-2xl font-title font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 title-shadow uppercase">Ver Detalhes</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ITEM 2 DO PORTFÓLIO -->
+                    <div class="portfolio-item group cursor-pointer" 
+                         data-video-type="youtube" 
+                         data-video-id="30z37NZ3YBg"
+                         data-title="NOVO MERCADO"
+                         data-role="Editor"
+                         data-description="Edição para o evento 'Novo Mercado', focada em criar uma experiência visual dinâmica e alinhada com a energia da marca."
+                         data-skills="Edição Dinâmica, Motion Graphics, Color Grading"
+                         data-software="Premiere Pro, After Effects">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl hover:shadow-[#2563EB]/20 transition-all duration-300 light-sweep">
+                           <img src="https://img.youtube.com/vi/30z37NZ3YBg/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/141414/3B82F6?text=Novo+Mercado';" alt="Thumbnail do vídeo NOVO MERCADO" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                           <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                               <p class="text-white text-2xl font-title font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 title-shadow uppercase">Ver Detalhes</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ITEM 3 DO PORTFÓLIO -->
+                    <div class="portfolio-item group cursor-pointer" 
+                         data-video-type="youtube" 
+                         data-video-id="C81uGCLyk24"
+                         data-title="ERICK 01"
+                         data-role="Editor"
+                         data-description="Edição de vídeo com foco em engajamento e narrativa visual para mídias sociais."
+                         data-skills="Edição para Reels/Shorts, Storytelling, Sound Design"
+                         data-software="After Effects e Premiere Pro">
+                        <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl hover:shadow-[#2563EB]/20 transition-all duration-300 light-sweep">
+                            <img src="https://img.youtube.com/vi/C81uGCLyk24/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/141414/3B82F6?text=ERICK+01';" alt="Thumbnail do vídeo ERICK 01" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                               <p class="text-white text-2xl font-title font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-300 title-shadow uppercase">Ver Detalhes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: SOBRE & DIFERENCIAIS -->
+        <section id="sobre" class="py-20 px-6 sm:px-12 bg-[#1a1a1a]">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+                <div class="lg:col-span-2">
+                    <img src="https://i.postimg.cc/6QRPPwwZ/Agrupar-1.png" alt="Foto de Ailton Santos" class="rounded-full mx-auto w-64 h-64 lg:w-full lg:h-auto lg:rounded-lg object-cover shadow-2xl shadow-[#2563EB]/10">
+                </div>
+                <div class="lg:col-span-3 text-center lg:text-left">
+                    <h2 class="text-4xl font-title font-bold mb-4 dark-blue-gradient-text title-shadow uppercase">Meu nome é Ailton Santos.</h2>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        Sou conhecido como Branco. Editor de vídeo e motion designer especializado em traduzir conceitos em narrativas visuais de alto impacto. Meu compromisso é com o resultado: entrego projetos que superam expectativas, unindo velocidade na execução e precisão técnica para alcançar seus objetivos.
+                    </p>
+                    <div class="flex flex-wrap gap-x-8 gap-y-4 justify-center lg:justify-start">
+                        <!-- Ícones com nova cor -->
+                        <div class="flex items-center gap-2">
+                            <svg class="text-[#3B82F6]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.3.05-3.12-.65-.82-2.12-.8-3.12-.05z"/><path d="m12 15-3-3a9 9 0 0 1 3-12 9 9 0 0 1 12 3l-3 3"/><path d="m7 14 6-6"/><path d="m21 21-1.5-1.5"/></svg>
+                            <span class="font-bold">Agilidade</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="text-[#3B82F6]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 2.5 4 11l6 6L21.5 6Z"/><path d="M18.5 3.5 22 7"/><path d="M12 15.5V22"/></svg>
+                            <span class="font-bold">Color Grading</span>
+                        </div>
+                         <div class="flex items-center gap-2">
+                            <svg class="text-[#3B82F6]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M7 8h10"/><path d="M7 12h10"/><path d="M7 16h5"/></svg>
+                            <span class="font-bold">Storytelling</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                           <svg class="text-[#3B82F6]" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                            <span class="font-bold">VFX & Motion</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: CONTATO -->
+        <section id="contato" class="py-20 px-6 sm:px-12 text-center">
+            <h2 class="text-4xl font-title font-bold mb-4 dark-blue-gradient-text title-shadow uppercase">Vamos criar algo incrível?</h2>
+            <p class="text-gray-400 mb-8 max-w-2xl mx-auto">Se você tem uma ideia, um projeto ou apenas quer trocar uma ideia sobre o mundo audiovisual, me envie uma mensagem.</p>
+            
+            <button id="open-contact-modal-btn" class="light-sweep inline-block bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white font-bold py-3 px-8 rounded-lg hover:from-[#1D4ED8] hover:to-[#2563EB] transition-all duration-300 text-lg shadow-xl hover:shadow-2xl hover:shadow-[#2563EB]/30">
+                Mande um E-mail
+            </button>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mt-12">
+                <a href="https://wa.me/5588999217184?text=Ol%C3%A1%2C%20gostaria%20de%20falar%20com%20voc%C3%AA%20sobre%20uns%20trabalhos%20com%20v%C3%ADdeos%21" target="_blank" class="group flex items-center gap-3 text-gray-400 hover:text-[#3B82F6] transition-colors">
+                    <svg class="group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.7 1.21 5.51 0 10-4.49 10-10.02S17.5 2.04 12 2.04zm0 18.02c-1.55 0-3.05-.4-4.38-1.15l-.32-.19-3.26.86.88-3.18-.21-.34c-.85-1.38-1.3-2.94-1.3-4.57 0-4.42 3.59-8.02 8-8.02s8.02 3.6 8.02 8.02-3.6 8.02-8.02 8.02zM17.53 14.3c-.27-.13-1.64-.81-1.9-0.9-.26-.09-.45-.13-.64.13s-.72.9-.88 1.07c-.16.17-.32.19-.59.06s-1.14-.42-2.17-1.33c-.81-.71-1.35-1.59-1.57-1.87-.22-.27-.02-.42.12-.55.13-.12.27-.31.41-.46.14-.14.19-.24.28-.4.09-.16.05-.3-.02-.43s-.64-1.53-.87-2.08c-.23-.55-.47-.48-.64-.48-.17 0-.37-.01-.56-.01s-.5.08-.76.37c-.26.29-.99.96-.99 2.35s1.01 2.73 1.15 2.91c.13.19 1.99 3.04 4.83 4.25.68.29 1.22.47 1.64.6.6.19 1.13.16 1.56.1.48-.07 1.64-.67 1.87-1.32.24-.65.24-1.21.16-1.32-.08-.12-.27-.19-.54-.32z"/>
+                    </svg>
+                    <span class="text-lg font-semibold">Contate-me</span>
+                </a>
+                <a href="https://www.instagram.com/a_santos77/" target="_blank" class="group flex items-center gap-3 text-gray-400 hover:text-[#3B82F6] transition-colors">
+                    <svg class="group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+                    <span class="text-lg font-semibold">Mais sobre mim</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#1a1a1a] py-6 text-center text-gray-500">
+        <p>&copy; <span id="current-year"></span> Branco Editor. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- MODAL DE PROJETO -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-90 backdrop-blur-sm z-50 hidden items-center justify-center p-4 md:p-8 transition-opacity duration-300">
+        <div class="bg-[#1a1a1a] w-full max-w-6xl max-h-[90vh] rounded-lg shadow-2xl relative border border-gray-700 flex flex-col lg:flex-row">
+            <button id="close-project-modal-btn" class="absolute -top-4 -right-4 bg-white text-black rounded-full h-10 w-10 flex items-center justify-center font-bold text-2xl z-20 leading-none">&times;</button>
+            
+            <div id="video-player-container" class="w-full lg:w-2/3 bg-black rounded-t-lg lg:rounded-l-lg lg:rounded-r-none">
+                <!-- O iframe será inserido aqui pelo JS -->
+            </div>
+            
+            <div class="w-full lg:w-1/3 p-6 space-y-4 overflow-y-auto">
+                <h3 id="modal-title" class="font-title font-bold text-3xl dark-blue-gradient-text title-shadow uppercase"></h3>
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-gray-400">Meu Papel</h4>
+                    <p id="modal-role" class="text-lg text-gray-200"></p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-gray-400">Sobre o Projeto</h4>
+                    <p id="modal-description" class="text-base text-gray-300"></p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-gray-400">Habilidades</h4>
+                    <p id="modal-skills" class="text-lg text-gray-200"></p>
+                </div>
+                 <div>
+                    <h4 class="font-bold text-sm uppercase tracking-wider text-gray-400">Softwares</h4>
+                    <p id="modal-software" class="text-lg text-gray-200"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- MODAL DE FORMULÁRIO DE CONTATO -->
+    <div id="contact-modal" class="fixed inset-0 bg-black bg-opacity-90 backdrop-blur-sm z-50 hidden items-center justify-center p-4 transition-opacity duration-300">
+        <div class="bg-[#1a1a1a] w-full max-w-lg rounded-lg shadow-2xl shadow-black/50 relative p-8 border border-gray-700">
+            <button id="close-contact-modal-btn" class="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors">&times;</button>
+            <h3 class="font-title font-bold text-2xl mb-6 text-center dark-blue-gradient-text title-shadow uppercase">Mande um E-mail</h3>
+            <form action="https://formspree.io/f/mwpqvdpe" method="POST" class="space-y-4">
+                <!-- Linha adicionada para redirecionar para a página de agradecimento -->
+                <input type="hidden" name="_next" value="./obrigado.html">
+
+                <div>
+                    <label for="name" class="block text-sm font-bold text-gray-400 mb-1">Nome</label>
+                    <input type="text" name="name" id="name" required class="w-full bg-[#141414] border border-gray-600 rounded-md p-2 text-white focus:outline-none focus:ring-2 focus:ring-[#3B82F6]">
+                </div>
+                <div>
+                    <label for="email" class="block text-sm font-bold text-gray-400 mb-1">Seu E-mail</label>
+                    <input type="email" name="email" id="email" required class="w-full bg-[#141414] border border-gray-600 rounded-md p-2 text-white focus:outline-none focus:ring-2 focus:ring-[#3B82F6]">
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-bold text-gray-400 mb-1">Mensagem</label>
+                    <textarea name="message" id="message" rows="4" required class="w-full bg-[#141414] border border-gray-600 rounded-md p-2 text-white focus:outline-none focus:ring-2 focus:ring-[#3B82F6]"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="light-sweep w-full inline-block bg-gradient-to-r from-[#2563EB] to-[#1D4ED8] text-white font-bold py-3 px-8 rounded-lg hover:from-[#1D4ED8] hover:to-[#2563EB] transition-all duration-300 text-lg shadow-xl hover:shadow-2xl hover:shadow-[#2563EB]/30">
+                        Enviar Mensagem
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Lógica Comum ---
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // --- Lógica do Modal de Projeto Detalhado ---
+            const projectModal = document.getElementById('project-modal');
+            const closeProjectModalBtn = document.getElementById('close-project-modal-btn');
+            const playerContainer = document.getElementById('video-player-container');
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+            const openProjectModal = (element) => {
+                const videoType = element.dataset.videoType;
+                const videoId = element.dataset.videoId;
+                
+                if (!videoType || !videoId) return;
+
+                document.getElementById('modal-title').textContent = element.dataset.title;
+                document.getElementById('modal-role').textContent = element.dataset.role;
+                document.getElementById('modal-description').textContent = element.dataset.description;
+                document.getElementById('modal-skills').textContent = element.dataset.skills;
+                document.getElementById('modal-software').textContent = element.dataset.software;
+
+                let iframeSrc = '';
+                if (videoType === 'vimeo') {
+                    iframeSrc = `https://player.vimeo.com/video/${videoId}?autoplay=1&color=3B82F6&title=0&byline=0&portrait=0`;
+                } else if (videoType === 'youtube') {
+                    iframeSrc = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                }
+                
+                playerContainer.innerHTML = `<iframe src="${iframeSrc}" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen class="w-full h-full aspect-video"></iframe>`;
+                
+                projectModal.classList.remove('hidden');
+                projectModal.classList.add('flex');
+            };
+
+            const closeProjectModal = () => {
+                playerContainer.innerHTML = '';
+                projectModal.classList.add('hidden');
+                projectModal.classList.remove('flex');
+            };
+
+            portfolioItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    openProjectModal(item);
+                });
+            });
+
+            closeProjectModalBtn.addEventListener('click', closeProjectModal);
+            projectModal.addEventListener('click', (event) => {
+                if (event.target === projectModal) closeProjectModal();
+            });
+
+            // --- Lógica do Modal de Contato ---
+            const contactModal = document.getElementById('contact-modal');
+            const openContactModalBtn = document.getElementById('open-contact-modal-btn');
+            const closeContactModalBtn = document.getElementById('close-contact-modal-btn');
+
+            const openContactModal = () => {
+                contactModal.classList.remove('hidden');
+                contactModal.classList.add('flex');
+            };
+
+            const closeContactModal = () => {
+                contactModal.classList.add('hidden');
+                contactModal.classList.remove('flex');
+            };
+
+            openContactModalBtn.addEventListener('click', openContactModal);
+            closeContactModalBtn.addEventListener('click', closeContactModal);
+            contactModal.addEventListener('click', (event) => {
+                if (event.target === contactModal) closeContactModal();
+            });
+            
+            // --- Fechar Modais com a tecla ESC ---
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    closeProjectModal();
+                    closeContactModal();
+                }
+            });
+
+            // --- Efeito de Fade-in nas seções ao rolar ---
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in-section');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
