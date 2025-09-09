@@ -96,6 +96,22 @@
         .scroller:hover .scroller__inner {
             animation-play-state: paused;
         }
+
+        /* Animação da Seta de Rolagem */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        .animate-bounce-slow {
+            animation: bounce 2s infinite;
+        }
         
     </style>
 </head>
@@ -104,12 +120,19 @@
     <!-- =================================================== -->
     <!-- SEÇÃO 1: ABERTURA (HERO)                            -->
     <!-- =================================================== -->
-    <header id="inicio" class="h-screen flex items-center justify-center text-center bg-white">
+    <header id="inicio" class="h-[30vh] flex flex-col items-center justify-center text-center bg-white relative">
         <div class="px-4">
             <h1 class="text-6xl md:text-8xl font-title font-bold text-[#333333] uppercase tracking-widest">santos filmes</h1>
             <p class="mt-4 text-lg md:text-2xl text-[#666666]">
                 A sua visão, em movimento. Vídeos que contam histórias.
             </p>
+        </div>
+        <div class="absolute bottom-4">
+            <a href="#demoreel" class="animate-bounce-slow">
+                <svg class="w-8 h-8 text-[#333333]" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M19 9l-7 7-7-7"></path>
+                </svg>
+            </a>
         </div>
     </header>
 
@@ -140,7 +163,7 @@
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     
-                    <!-- ITEM 2 DO PORTFÓLIO -->
+                    <!-- VÍDEO 1 -->
                     <div class="portfolio-item group cursor-pointer" 
                          data-video-type="youtube" 
                          data-video-id="XF97sMp_SMs"
@@ -157,7 +180,7 @@
                         </div>
                     </div>
 
-                    <!-- ITEM 3 DO PORTFÓLIO -->
+                    <!-- VÍDEO 2 -->
                     <div class="portfolio-item group cursor-pointer" 
                          data-video-type="youtube" 
                          data-video-id="C81uGCLyk24"
@@ -174,7 +197,7 @@
                         </div>
                     </div>
                     
-                    <!-- ITEM 4 DO PORTFÓLIO -->
+                    <!-- VÍDEO 3 -->
                     <div class="portfolio-item group cursor-pointer" 
                          data-video-type="youtube" 
                          data-video-id="f1qeaOCl6ZY"
@@ -190,23 +213,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- =================================================== -->
-        <!-- SEÇÃO 2.5: MAIS PROJETOS                            -->
-        <!-- =================================================== -->
-        <section id="mais-projetos" class="py-20 px-6 sm:px-12 bg-[#CFD8DC]">
-            <div class="max-w-7xl mx-auto">
-                <div class="flex justify-center mb-12">
-                    <h2 class="text-4xl font-title font-bold text-[#333333] uppercase bg-white py-3 px-6 rounded-lg inline-block border border-gray-300">Mais Projetos</h2>
-                </div>
-                <p class="text-center text-[#666666] mb-12">Outros trabalhos que demonstram minha versatilidade.</p>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
-                    <!-- ITEM 1 DE MAIS PROJETOS -->
+                    <!-- VÍDEO 4 -->
                     <div class="portfolio-item group cursor-pointer" 
                          data-video-type="youtube" 
                          data-video-id="KSNsZUpWJLU"
@@ -223,7 +231,7 @@
                         </div>
                     </div>
 
-                    <!-- ITEM 2 DE MAIS PROJETOS -->
+                    <!-- VÍDEO 5 -->
                     <div class="portfolio-item group cursor-pointer" 
                          data-video-type="youtube" 
                          data-video-id="tWgLPXsCS2A"
@@ -231,7 +239,7 @@
                          data-role="Editor"
                          data-description="Vídeo vertical para KZ Midias, otimizado para visualização em dispositivos móveis e redes sociais como Reels e Shorts."
                          data-skills="Edição para Mídias Sociais, Formato Vertical, Motion Graphics"
-                         data-software="Premiere Pro, After Effects">
+                         data-software="After Effects">
                         <div class="relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl hover:shadow-black/20 transition-all duration-300 light-sweep">
                             <img src="https://img.youtube.com/vi/tWgLPXsCS2A/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/E0E0E0/333333?text=KZ+Midias';" alt="Thumbnail do vídeo KZ midias vertical" class="w-full h-auto transform group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
@@ -240,7 +248,7 @@
                         </div>
                     </div>
                     
-                    <!-- ITEM 3 DE MAIS PROJETOS -->
+                    <!-- VÍDEO 6 -->
                     <div class="portfolio-item group cursor-pointer" 
                          data-video-type="youtube" 
                          data-video-id="6_b7RDuLwcI"
@@ -263,7 +271,7 @@
         <!-- =================================================== -->
         <!-- SEÇÃO 3: CLIENTES (Nova Posição)                    -->
         <!-- =================================================== -->
-        <section id="clientes" class="py-20 px-6 sm:px-12 bg-white">
+        <section id="clientes" class="py-20 px-6 sm:px-12 bg-[#CFD8DC]">
             <div class="max-w-7xl mx-auto text-center">
                 <div class="flex justify-center mb-2">
                     <h2 class="text-4xl font-title font-bold text-[#333333] uppercase bg-white py-3 px-6 rounded-lg inline-block border border-gray-300">Marcas que Confiam em meu trabalho</h2>
@@ -533,6 +541,12 @@
 
 </body>
 </html>
+
+
+
+
+
+
 
 
 
