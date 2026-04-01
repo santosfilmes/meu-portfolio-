@@ -112,7 +112,7 @@
             100% { box-shadow: 0 0 0 0 rgba(255, 122, 0, 0); }
         }
 
-        /* Estrutura do Modal */
+        /* Estrutura do Modal Fixa e Centralizada */
         #projectModal {
             display: none;
             position: fixed;
@@ -134,6 +134,7 @@
             max-height: 90vh;
         }
 
+        /* Player Rigidamente dentro do Box */
         .video-container-fixed {
             width: 100%;
             background: #000;
@@ -157,7 +158,7 @@
             border: none;
         }
 
-        /* Alerta de Som */
+        /* Alerta de Som com Destaque */
         .sound-alert {
             background: #ffffff;
             color: #000;
@@ -181,6 +182,7 @@
             100% { transform: scale(1); }
         }
 
+        /* Botão Fechar */
         .close-modal-btn {
             position: absolute;
             top: -50px;
@@ -223,6 +225,7 @@
             display: inline-block;
         }
 
+        /* Seção Em Breve */
         .coming-soon-box {
             width: 100%;
             padding: 60px 20px;
@@ -231,6 +234,7 @@
             border-radius: 2rem;
         }
 
+        /* Animação de zoom */
         .animate-zoom {
             animation: zoomIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
@@ -242,10 +246,11 @@
 </head>
 <body class="selection:bg-orange-500">
 
+    <!-- Navegação -->
     <nav class="fixed top-0 w-full z-50 bg-black/60 backdrop-blur-lg border-b border-white/5">
         <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
-            <h2 class="font-bebas text-xl md:text-2xl tracking-widest text-orange-600 uppercase">SANTOS FILMES</h2>
-            <div class="flex gap-4 md:gap-6 text-[9px] md:text-[10px] font-bold uppercase tracking-widest opacity-60 text-white">
+            <h2 class="font-bebas text-xl md:text-2xl tracking-widest text-orange-600 uppercase text-center">SANTOS FILMES</h2>
+            <div class="flex gap-4 md:gap-6 text-[9px] md:text-[10px] font-bold uppercase tracking-widest opacity-60 text-white text-center">
                 <a href="#showreel" class="hover:text-orange-500 transition">Showreel</a>
                 <a href="#cinema" class="hover:text-orange-500 transition">Cinema</a>
                 <a href="#vertical" class="hover:text-orange-500 transition">Reels</a>
@@ -255,27 +260,20 @@
 
     <main class="max-w-7xl mx-auto px-4 md:px-6 pt-24 md:pt-32 pb-20 flex flex-col gap-16 md:gap-24">
 
-        <!-- 1. HEADER E SHOWREEL (VÍDEO REMOVIDO / PLACEHOLDER ATIVO) -->
+        <!-- 1. HEADER E SHOWREEL -->
         <section id="showreel" class="flex flex-col gap-8 md:gap-12 text-center">
             <div>
-                <h1 class="font-bebas text-5xl sm:text-7xl md:text-9xl mb-2 text-white text-center">PORTFÓLIO</h1>
+                <h1 class="font-bebas text-5xl sm:text-7xl md:text-9xl mb-2 text-white text-center uppercase">PORTFÓLIO</h1>
                 <p class="font-inter-tight text-zinc-400 uppercase tracking-[0.3em] text-[10px] md:text-xs px-4 text-center">Visão Cinematográfica & Performance Visual</p>
             </div>
 
             <!-- Espaço reservado para o Novo Reel -->
             <div class="thumbnail-card glass-card aspect-video group cursor-default">
                 <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1600" class="opacity-30" alt="Showreel Placeholder">
-                
-                <!-- Overlay Informativo -->
                 <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
                     <i class="fas fa-film text-4xl md:text-6xl text-zinc-700 mb-4"></i>
-                    <h2 class="font-bebas text-3xl md:text-6xl text-zinc-500 tracking-[0.2em] uppercase leading-none">NOVO REEL</h2>
-                    <p class="text-zinc-600 text-xs md:text-sm uppercase tracking-widest mt-2 font-bold">Em fase de produção</p>
-                </div>
-
-                <div class="absolute bottom-4 left-4 text-left">
-                    <span class="text-[10px] border border-zinc-700 text-zinc-600 px-2 py-1 rounded font-bold uppercase">Aguardando atualização</span>
-                    <h2 class="font-bebas text-2xl md:text-4xl text-zinc-700">REEL DE IMPACTO</h2>
+                    <h2 class="font-bebas text-3xl md:text-6xl text-zinc-500 tracking-[0.2em] uppercase leading-none text-center">NOVO REEL</h2>
+                    <p class="text-zinc-600 text-xs md:text-sm uppercase tracking-widest mt-2 font-bold text-center">Em fase de produção</p>
                 </div>
             </div>
         </section>
@@ -286,78 +284,96 @@
                 <h2 class="font-bebas text-3xl md:text-5xl uppercase tracking-tighter text-white">EDIÇÕES <span class="text-orange-500">CINEMATOGRÁFICAS</span></h2>
                 <div class="h-[1px] bg-white/10 flex-grow"></div>
             </div>
-
             <div class="coming-soon-box glass-card">
-                <h3 class="font-bebas text-4xl md:text-6xl text-zinc-600 tracking-[0.2em]">EM BREVE</h3>
-                <p class="text-zinc-500 text-xs md:text-sm uppercase tracking-widest mt-2">Novas produções horizontais em fase de finalização</p>
+                <h3 class="font-bebas text-4xl md:text-6xl text-zinc-600 tracking-[0.2em] text-center">EM BREVE</h3>
             </div>
         </section>
 
-        <!-- 3. MONTRA REELS (Vertical) -->
-        <section id="vertical" class="flex flex-col gap-8">
-            <div class="flex items-center gap-4">
-                <h2 class="font-bebas text-3xl md:text-5xl text-blue-500 uppercase tracking-tighter">VERTICAL <span class="text-white">& REELS</span></h2>
-                <div class="h-[1px] bg-white/10 flex-grow"></div>
+        <!-- 3. MONTRA VERTICAL & REELS -->
+        <section id="vertical" class="flex flex-col gap-12">
+            
+            <!-- PARTE 1: REELS & SOCIAL -->
+            <div class="flex flex-col gap-8">
+                <div class="flex items-center gap-4">
+                    <h2 class="font-bebas text-3xl md:text-5xl text-blue-500 uppercase tracking-tighter">REELS <span class="text-white">& SOCIAL</span></h2>
+                    <div class="h-[1px] bg-white/10 flex-grow"></div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                    <!-- CONSTRUTORA LYTORÂNEA -->
+                    <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Construtora Lytorânea', 'Melhores momentos da empresa no ano de 2025.', 'https://player.vimeo.com/video/1170674437?autoplay=1', true)">
+                        <img src="https://i.postimg.cc/mgTqGYC4/Gemini-Generated-Image-n433epn433epn433.png" class="opacity-80" alt="Lytorânea">
+                        <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
+                        <div class="thumbnail-overlay"><h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Construtora Lytorânea</h5></div>
+                    </div>
+
+                    <!-- DOM BOSCO -->
+                    <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Dom Bosco Promotion', 'Cobertura direta de evento esportivo.', 'https://player.vimeo.com/video/1170681340?autoplay=1', true)">
+                        <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=600" class="opacity-60" alt="Dom Bosco">
+                        <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
+                        <div class="thumbnail-overlay"><h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Dom Bosco</h5></div>
+                    </div>
+
+                    <!-- FASHION BLOGGER -->
+                    <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Fashion Blogger | Transição', 'Edição dinâmica de blogueira de moda.', 'https://player.vimeo.com/video/1170691408?autoplay=1', true)">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&q=80&w=600" class="opacity-60" alt="Fashion Blogger">
+                        <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
+                        <div class="thumbnail-overlay"><h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Fashion Blogger</h5></div>
+                    </div>
+
+                    <!-- SAÚDE -->
+                    <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Saúde', 'Vídeo dinâmico.', 'https://player.vimeo.com/video/1176595662?autoplay=1', true)">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=800&auto=format&fit=crop" class="opacity-80" alt="Saúde">
+                        <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
+                        <div class="thumbnail-overlay"><h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Saúde</h5></div>
+                    </div>
+
+                    <!-- SEGURO DE VIDA -->
+                    <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Seguro de Vida', 'Vídeo dinâmico.', 'https://player.vimeo.com/video/1176594242?autoplay=1', true)">
+                        <img src="https://images.unsplash.com/photo-1579389083046-e3df9c2b3325?q=80&w=800&auto=format&fit=crop" class="opacity-90" alt="Coração 3D">
+                        <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
+                        <div class="thumbnail-overlay">
+                            <h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Seguro de Vida</h5>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- VÍDEO 1: NATURAL PETS -->
-                <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Motion Natural Pets', 'Rebrand da marca focado em destacar a nova identidade.', 'https://player.vimeo.com/video/1170673733?autoplay=1', true)">
-                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=600" class="opacity-60" alt="Natural Pets">
-                    <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
-                    <div class="thumbnail-overlay"><h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Natural Pets</h5></div>
-                </div>
-                
-                <!-- VÍDEO 2: CONSTRUTORA LYTORÂNEA -->
-                <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Construtora Lytorânea', 'Melhores momentos da empresa no ano de 2025.', 'https://player.vimeo.com/video/1170674437?autoplay=1', true)">
-                    <img src="https://i.postimg.cc/mgTqGYC4/Gemini-Generated-Image-n433epn433epn433.png" class="opacity-80" alt="Lytorânea">
-                    <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
-                    <div class="thumbnail-overlay"><h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Construtora Lytorânea</h5></div>
+            <!-- PARTE 2: MOTION GRAPHICS -->
+            <div class="flex flex-col gap-8">
+                <div class="flex items-center gap-4">
+                    <h2 class="font-bebas text-3xl md:text-5xl text-orange-500 uppercase tracking-tighter">MOTION <span class="text-white">GRAPHICS</span></h2>
+                    <div class="h-[1px] bg-white/10 flex-grow"></div>
                 </div>
 
-                <!-- VÍDEO 3: DOM BOSCO -->
-                <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Dom Bosco Promotion', 'Cobertura direta de evento esportivo.', 'https://player.vimeo.com/video/1170681340?autoplay=1', true)">
-                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=600" class="opacity-60" alt="Dom Bosco">
-                    <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
-                    <div class="thumbnail-overlay"><h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Dom Bosco</h5></div>
-                </div>
-
-                <!-- VÍDEO 4: FASHION BLOGGER -->
-                <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Fashion Blogger | Transição', 'Edição dinâmica de blogueira de moda.', 'https://player.vimeo.com/video/1170691408?autoplay=1', true)">
-                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&q=80&w=600" class="opacity-60" alt="Fashion Blogger">
-                    <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
-                    <div class="thumbnail-overlay"><h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Fashion Blogger</h5></div>
-                </div>
-
-                <!-- VÍDEO 5: SEGURO DE VIDA -->
-                <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Seguro de Vida', 'Vídeo dinâmico.', 'https://player.vimeo.com/video/1176594242?autoplay=1', true)">
-                    <img src="https://images.unsplash.com/photo-1579389083046-e3df9c2b3325?q=80&w=800&auto=format&fit=crop" class="opacity-90" alt="Coração 3D">
-                    <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
-                    <div class="thumbnail-overlay">
-                        <h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Seguro de Vida</h5>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- NATURAL PETS -->
+                    <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Motion Natural Pets', 'Rebrand da marca focado em destacar a nova identidade visual.', 'https://player.vimeo.com/video/1170673733?autoplay=1', true)">
+                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=600" class="opacity-60" alt="Natural Pets">
+                        <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
+                        <div class="thumbnail-overlay"><h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Natural Pets</h5></div>
                     </div>
-                </div>
 
-                <!-- VÍDEO 6: SAÚDE -->
-                <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Saúde', 'Vídeo dinâmico.', 'https://player.vimeo.com/video/1176595662?autoplay=1', true)">
-                    <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=800&auto=format&fit=crop" class="opacity-80" alt="Saúde">
-                    <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
-                    <div class="thumbnail-overlay">
-                        <h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Saúde</h5>
+                    <!-- MOTION NOVO MERCADO -->
+                    <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Motion Novo Mercado', 'Motion novo mercado', 'https://player.vimeo.com/video/1179250075?autoplay=1', true)">
+                        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800" class="opacity-80" alt="Motion Novo Mercado">
+                        <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
+                        <div class="thumbnail-overlay"><h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Motion Novo Mercado</h5></div>
                     </div>
-                </div>
 
-                <!-- VÍDEO 7, 8: EM BREVE -->
-                <div class="thumbnail-card glass-card aspect-[9/16] border-dashed border-2 border-white/5 opacity-50">
-                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                        <i class="fas fa-plus text-2xl text-zinc-700 mb-2"></i>
-                        <span class="font-bebas text-xl text-zinc-700">EM BREVE</span>
+                    <!-- MOTION DESIGN KZ MÍDIAS -->
+                    <div class="thumbnail-card glass-card aspect-[9/16]" onclick="openModal('Motion Design KZ Mídias', 'Motion sem som a pedido do cliente.', 'https://player.vimeo.com/video/1179257686?autoplay=1', true)">
+                        <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=800&auto=format&fit=crop" class="opacity-80" alt="KZ Mídias Cover">
+                        <div class="play-btn-animated"><i class="fas fa-play ml-1"></i></div>
+                        <div class="thumbnail-overlay"><h5 class="font-bold text-[10px] md:text-sm uppercase leading-tight text-white">Motion Design KZ Mídias</h5></div>
                     </div>
-                </div>
-                <div class="thumbnail-card glass-card aspect-[9/16] border-dashed border-2 border-white/5 opacity-50">
-                    <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-                        <i class="fas fa-plus text-2xl text-zinc-700 mb-2"></i>
-                        <span class="font-bebas text-xl text-zinc-700">EM BREVE</span>
+
+                    <!-- PLACEHOLDER MOTION -->
+                    <div class="thumbnail-card glass-card aspect-[9/16] border-dashed border-2 border-white/5 opacity-50">
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
+                            <i class="fas fa-plus text-2xl text-zinc-700 mb-2"></i>
+                            <span class="font-bebas text-xl text-zinc-700 uppercase text-center">Em Breve</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -366,23 +382,27 @@
         <!-- 4. SECÇÃO SOBRE MIM / BRANDING -->
         <section id="branding" class="glass-card rounded-[2rem] md:rounded-[40px] p-6 md:p-16">
             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                <div class="relative w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-orange-500 shrink-0 group">
-                    <img src="https://i.postimg.cc/8CwdVCjk/Chat-GPT-Image-Jan-29-2026-09-11-21-PM.png" class="grayscale group-hover:grayscale-0 transition duration-700 w-full h-full object-cover" alt="Perfil">
+                <!-- FOTO DE PERFIL RESTAURADA COM O LINK ORIGINAL QUE FUNCIONA -->
+                <div class="relative w-40 h-40 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-orange-500 shrink-0 group shadow-[0_0_50px_rgba(255,122,0,0.2)] bg-zinc-900">
+                    <img src="https://i.postimg.cc/8CwdVCjk/Chat-GPT-Image-Jan-29-2026-09-11-21-PM.png" 
+                         class="grayscale group-hover:grayscale-0 transition duration-700 w-full h-full object-cover scale-100 group-hover:scale-110" 
+                         alt="Foto de Perfil">
                 </div>
+                
                 <div class="flex flex-col gap-4 md:gap-6 text-center md:text-left">
-                    <h2 class="font-bebas text-4xl md:text-7xl uppercase leading-none text-white">SANTOS<span class="text-orange-500">FILMES</span></h2>
-                    <p class="text-zinc-300 leading-relaxed text-sm md:text-lg max-w-2xl font-light italic">
+                    <h2 class="font-bebas text-4xl md:text-7xl uppercase leading-none text-white text-center md:text-left">SANTOS<span class="text-orange-500">FILMES</span></h2>
+                    <p class="text-zinc-300 leading-relaxed text-sm md:text-lg max-w-2xl font-light italic text-center md:text-left">
                         Editor de vídeo e motion designer especializado em traduzir conceitos em narrativas visuais de alto impacto. Entrego projetos que superam expectativas com velocidade e precisão técnica.
                     </p>
                     <div class="flex flex-wrap justify-center md:justify-start gap-3 md:gap-4 text-[9px] md:text-[10px] font-bold uppercase tracking-widest opacity-60 text-white">
-                        <div class="bg-zinc-900 px-3 py-2 rounded-lg border border-white/5 flex items-center gap-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" class="h-3 md:h-4"> Premiere Pro
+                        <div class="bg-zinc-900 px-3 py-2 rounded-lg border border-white/5 flex items-center gap-2 text-white">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" class="h-3 md:h-4" alt="PR"> Premiere Pro
                         </div>
-                        <div class="bg-zinc-900 px-3 py-2 rounded-lg border border-white/5 flex items-center gap-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" class="h-3 md:h-4"> After Effects
+                        <div class="bg-zinc-900 px-3 py-2 rounded-lg border border-white/5 flex items-center gap-2 text-white">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg" class="h-3 md:h-4" alt="AE"> After Effects
                         </div>
-                        <div class="bg-zinc-900 px-3 py-2 rounded-lg border border-white/5 flex items-center gap-2">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" class="h-3 md:h-4"> DaVinci Resolve
+                        <div class="bg-zinc-900 px-3 py-2 rounded-lg border border-white/5 flex items-center gap-2 text-white">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" class="h-3 md:h-4" alt="DR"> DaVinci Resolve
                         </div>
                     </div>
                 </div>
