@@ -722,10 +722,10 @@
 
         </section>
 
-        <!-- SEÇÃO: COLOR GRADE (CAROL + ÁRVORE DE NODES COM LINKS DIRETOS) -->
+        <!-- SEÇÃO: COLOR GRADING (CAROL + ÁRVORE DE NODES COM LINKS DIRETOS) -->
         <section id="colorgrade" class="flex flex-col gap-8 md:gap-10">
             <div class="flex items-center gap-4">
-                <span class="cutout-badge-orange text-lg md:text-2xl font-bebas">COLOR GRADE</span>
+                <span class="cutout-badge-orange text-lg md:text-2xl font-bebas">COLOR GRADING</span>
                 <div class="h-[1px] bg-white/15 flex-grow"></div>
                 <span class="font-mono-tag text-xs text-zinc-500 uppercase hidden md:inline">[ DAVINCI RESOLVE WORKFLOW ]</span>
             </div>
@@ -751,14 +751,15 @@
                         </div>
 
                         <!-- Container da Thumbnail com Imagem Direta da Carol (Antes e Depois) -->
-                        <div class="aspect-[9/16] bg-zinc-900 overflow-hidden relative rounded mb-3 border border-white/10 mt-6 group">
+                        <div class="aspect-[9/16] bg-zinc-900 overflow-hidden relative rounded mb-3 border-2 border-white/20 mt-6 group shadow-2xl">
                             
                             <img id="colorGradeThumb"
                                  src="https://i.postimg.cc/MZb2YkHQ/ANTES-DE-DEPOIS.png" 
+                                 onerror="this.onerror=null; this.src='carol-antes-depois.jpg';"
                                  class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-95" 
                                  alt="Antes e Depois — Carol">
 
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 pointer-events-none"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none"></div>
 
                             <!-- Botão de Play Central -->
                             <div class="stamp-play-btn">
@@ -767,8 +768,8 @@
 
                             <!-- Etiqueta inferior no card -->
                             <div class="absolute bottom-3 left-3 right-3 text-center pointer-events-none">
-                                <span class="text-[10px] font-mono-tag text-orange-400 font-bold uppercase tracking-wider block bg-black/80 py-1 px-2 rounded backdrop-blur-sm border border-orange-500/40">
-                                    [ CAROL • CLIQUE PARA ASSISTIR ]
+                                <span class="text-[10px] font-mono-tag text-orange-400 font-bold uppercase tracking-wider block bg-black/85 py-1.5 px-2 rounded backdrop-blur-sm border border-orange-500/40 shadow-lg">
+                                    [ CAROL • ANTES & DEPOIS • PLAY COM SOM ]
                                 </span>
                             </div>
                         </div>
@@ -782,7 +783,7 @@
                     </div>
                 </div>
 
-                <!-- COLUNA 2: ÁRVORE DE NODES COM LINK DIRETO & ETAPAS -->
+                <!-- COLUNA 2: ÁRVORE DE NODES COM LINK DIRETO & PAINEL DE SCOPES/VECTORSCOPE -->
                 <div class="lg:col-span-7 flex flex-col gap-6">
                     
                     <div class="polaroid-video-card-dark rounded-xl p-5 md:p-8 relative rotate-1 hover:rotate-0 border-2 border-white/15">
@@ -798,15 +799,44 @@
                             </span>
                         </div>
 
-                        <!-- Foto da Árvore de Nodes com Link Direto da Imagem Enviada -->
-                        <div class="aspect-video bg-[#131315] rounded-lg overflow-hidden border-2 border-white/20 relative group flex items-center justify-center shadow-inner">
-                            <img id="nodeTreeImg" 
-                                 src="https://i.postimg.cc/QdzRMh4f/ARVORE-DE-NODE.png" 
-                                 class="w-full h-full object-contain p-1 opacity-95 group-hover:opacity-100 transition duration-500" 
-                                 alt="Árvore de Nodes DaVinci Resolve — Ailton S.">
-                            
-                            <div class="absolute bottom-2 left-3 bg-black/85 px-3 py-1 rounded border border-white/20 text-[10px] font-mono-tag text-zinc-300">
-                                <i class="fas fa-sitemap text-orange-500 mr-1"></i> Estrutura de Nós do Projeto
+                        <div class="flex flex-col gap-4">
+                            <!-- Foto da Árvore de Nodes com Link Direto da Imagem Enviada -->
+                            <div class="aspect-video bg-[#0f1013] rounded-lg overflow-hidden border-2 border-white/20 relative group flex items-center justify-center shadow-inner">
+                                <img id="nodeTreeImg" 
+                                     src="https://i.postimg.cc/QdzRMh4f/ARVORE-DE-NODE.png" 
+                                     onerror="this.onerror=null; this.src='arvore-de-nodes.png';"
+                                     class="w-full h-full object-contain p-1.5 opacity-95 group-hover:opacity-100 transition duration-500" 
+                                     alt="Árvore de Nodes DaVinci Resolve — Ailton S.">
+                                
+                                <div class="absolute bottom-2 left-3 bg-black/85 backdrop-blur-md px-3 py-1 rounded border border-white/20 text-[10px] font-mono-tag text-zinc-300">
+                                    <i class="fas fa-sitemap text-orange-500 mr-1"></i> Estrutura de Nós do Projeto
+                                </div>
+                            </div>
+
+                            <!-- Painel de Elementos DaVinci Resolve (Vectorscope, Scopes & Monitoramento) -->
+                            <div class="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center bg-black/60 p-3 rounded-lg border border-white/10">
+                                <div class="sm:col-span-5 rounded overflow-hidden border border-white/15 aspect-video bg-zinc-950 relative group">
+                                    <img src="https://blog.frame.io/wp-content/uploads/2023/10/davinci-resolve-enable-qualifier-focus-in-scopes.jpg" 
+                                         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition" 
+                                         alt="Vectorscope e Scopes DaVinci">
+                                    <span class="absolute bottom-1 right-1 bg-black/80 px-1.5 py-0.5 rounded text-[8px] font-mono-tag text-orange-400">
+                                        SCOPES
+                                    </span>
+                                </div>
+                                <div class="sm:col-span-7 flex flex-col justify-center gap-1.5 text-left px-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                                        <h4 class="font-bebas text-lg text-white uppercase tracking-wide">MONITORAMENTO & VECTORSCOPE</h4>
+                                    </div>
+                                    <p class="font-mono-tag text-[10px] text-zinc-400 leading-relaxed">
+                                        Análise cromática em tempo real para controle de saturação, equilíbrio de balanço de brancos e verificação da linha de pele (Skin Tone Indicator).
+                                    </p>
+                                    <div class="flex flex-wrap gap-1.5 text-[9px] font-mono-tag text-zinc-300 mt-0.5">
+                                        <span class="bg-white/10 px-2 py-0.5 rounded border border-white/10">Vectorscope</span>
+                                        <span class="bg-white/10 px-2 py-0.5 rounded border border-white/10">Parade RGB</span>
+                                        <span class="bg-white/10 px-2 py-0.5 rounded border border-white/10">Waveform</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
