@@ -8,6 +8,9 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Vimeo Player API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -1080,21 +1083,32 @@
 
     </main>
 
-    <!-- MODAL DE VÍDEO COM AUTOPLAY E SOM -->
+    <!-- MODAL DE VÍDEO OTIMIZADO PARA MOBILE: TELA INTEIRA & CONTROLE DE ÁUDIO -->
     <div id="projectModal" onclick="closeOnOverlay(event)">
         <div class="modal-content animate-zoom">
-            <div class="close-modal-btn shadow-2xl" onclick="closeModal()">
+            <div class="close-modal-btn shadow-2xl" onclick="closeModal()" title="Fechar">
                 <i class="fas fa-times"></i>
             </div>
             
+            <!-- Container do Player -->
             <div id="videoContainer" class="video-container-fixed">
                 <iframe id="videoFrame" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
+
+            <!-- Barra de Ações Mobile & Desktop: Tela Inteira + Ativar Som -->
+            <div class="bg-black/95 px-4 py-2.5 border-x border-white/10 flex flex-wrap items-center justify-between gap-2.5">
+                <button type="button" onclick="toggleFullscreen()" class="flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-black font-bebas text-base md:text-lg px-4 py-2 rounded font-bold shadow-md transition active:scale-95 cursor-pointer">
+                    <i class="fas fa-expand text-sm"></i> Tela Inteira
+                </button>
+                <button type="button" id="unmuteBtn" onclick="enableAudio()" class="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-mono-tag text-xs px-3.5 py-2 rounded border border-white/20 transition active:scale-95 cursor-pointer">
+                    <i class="fas fa-volume-up text-orange-400 text-sm"></i> <span id="unmuteText">Ativar Som</span>
+                </button>
+            </div>
             
-            <div class="modal-details bg-zinc-950 p-6 rounded-b-xl border border-white/10 border-t-0">
-                <h2 id="modalTitle" class="font-bebas text-3xl text-orange-500 mb-1 uppercase"></h2>
-                <p id="modalBody" class="text-zinc-400 font-mono-tag text-xs mb-6 font-light leading-relaxed"></p>
-                <div class="flex flex-col sm:flex-row gap-4">
+            <div class="modal-details bg-zinc-950 p-5 sm:p-6 rounded-b-xl border border-white/10 border-t-0">
+                <h2 id="modalTitle" class="font-bebas text-2xl sm:text-3xl text-orange-500 mb-1 uppercase"></h2>
+                <p id="modalBody" class="text-zinc-400 font-mono-tag text-xs mb-5 font-light leading-relaxed"></p>
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <button onclick="closeModal()" class="text-xs font-mono-tag font-bold uppercase text-white border border-white/20 px-6 py-3 rounded hover:bg-white/10 transition text-center">
                         Voltar ao Portfólio
                     </button>
@@ -1107,6 +1121,8 @@
     </div>
 
     <script>
+        let vimeoPlayer = null;
+
         function openModal(title, text, videoUrl, isVertical = false) {
             document.getElementById('modalTitle').innerText = title;
             document.getElementById('modalBody').innerText = text;
@@ -1114,11 +1130,15 @@
             const frame = document.getElementById('videoFrame');
             const container = document.getElementById('videoContainer');
             
-            // Garante autoplay imediato, áudio ativo (sem mudo) e reprodução inline no celular
+            // Força controles do Vimeo sempre visíveis (controls=1), tela inteira ativada e autoplay
             let url = videoUrl;
-            url = url.replace(/([?&])autoplay=[^&]*/g, '').replace(/([?&])muted=[^&]*/g, '').replace(/([?&])playsinline=[^&]*/g, '');
+            url = url.replace(/([?&])autoplay=[^&]*/g, '')
+                     .replace(/([?&])muted=[^&]*/g, '')
+                     .replace(/([?&])playsinline=[^&]*/g, '')
+                     .replace(/([?&])controls=[^&]*/g, '')
+                     .replace(/([?&])fullscreen=[^&]*/g, '');
             const sep = url.includes('?') ? '&' : '?';
-            url += sep + 'autoplay=1&muted=0&playsinline=1&autopause=0';
+            url += sep + 'autoplay=1&muted=0&playsinline=1&controls=1&fullscreen=1&autopause=0';
             
             frame.src = url;
 
@@ -1130,12 +1150,66 @@
             
             document.getElementById('projectModal').style.display = 'flex';
             document.body.classList.add('modal-open');
+
+            // Inicializa a API do Vimeo para tentar desmutar automaticamente e permitir tela inteira
+            try {
+                if (window.Vimeo && Vimeo.Player) {
+                    vimeoPlayer = new Vimeo.Player(frame);
+                    vimeoPlayer.ready().then(() => {
+                        vimeoPlayer.setMuted(false).catch(() => {});
+                        vimeoPlayer.setVolume(1).catch(() => {});
+                        vimeoPlayer.play().catch(() => {});
+                    });
+                }
+            } catch(e) {}
+        }
+
+        // Função do botão de Ativar Som caso o navegador do celular bloqueie áudio inicial
+        function enableAudio() {
+            if (vimeoPlayer) {
+                vimeoPlayer.setMuted(false).then(() => {
+                    vimeoPlayer.setVolume(1);
+                    document.getElementById('unmuteText').innerText = "Som Ativado";
+                }).catch(() => {
+                    document.getElementById('unmuteText').innerText = "Toque no vídeo";
+                });
+            } else {
+                document.getElementById('unmuteText').innerText = "Toque no vídeo";
+            }
+        }
+
+        // Função do botão de Tela Inteira dedicado
+        function toggleFullscreen() {
+            if (vimeoPlayer) {
+                vimeoPlayer.requestFullscreen().catch(() => {
+                    fallbackFullscreen();
+                });
+            } else {
+                fallbackFullscreen();
+            }
+        }
+
+        function fallbackFullscreen() {
+            const el = document.getElementById('videoContainer') || document.getElementById('videoFrame');
+            if (el.requestFullscreen) {
+                el.requestFullscreen();
+            } else if (el.webkitRequestFullscreen) {
+                el.webkitRequestFullscreen();
+            } else if (el.webkitEnterFullscreen) {
+                el.webkitEnterFullscreen();
+            } else if (el.msRequestFullscreen) {
+                el.msRequestFullscreen();
+            }
         }
 
         function closeModal() {
+            if (vimeoPlayer) {
+                try { vimeoPlayer.unload(); } catch(e) {}
+            }
             document.getElementById('projectModal').style.display = 'none';
             document.getElementById('videoFrame').src = ""; 
             document.body.classList.remove('modal-open');
+            document.getElementById('unmuteText').innerText = "Ativar Som";
         }
 
         function closeOnOverlay(event) {
