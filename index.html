@@ -37,7 +37,7 @@
             background-size: cover;
         }
 
-        /* Efeito de Granulação de Filme + Grid de Tetris */
+        /* Granulação de Filme */
         body::after {
             content: "";
             position: fixed;
@@ -47,49 +47,17 @@
             z-index: 99;
         }
 
-        /* Fundo de Peças Tetris Estilo Colagem */
+        /* Fundo de Grid Tetris */
         .tetris-bg-overlay {
             position: fixed;
             inset: 0;
             pointer-events: none;
             z-index: 1;
-          0.15;
+            opacity: 0.15;
             background-image: 
                 linear-gradient(rgba(255, 122, 0, 0.1) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 122, 0, 0.1) 1px, transparent 1px);
             background-size: 32px 32px;
-        }
-
-        /* Animação suave para peças de Tetris no background */
-        .tetris-block {
-            position: absolute;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            background: rgba(255, 122, 0, 0.08);
-            box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(2px);
-        }
-
-        .tetris-shape-t {
-            width: 96px;
-            height: 64px;
-            clip-path: polygon(0% 32px, 32px 32px, 32px 0%, 64px 0%, 64px 32px, 96px 32px, 96px 64px, 0% 64px);
-            background: rgba(255, 122, 0, 0.25);
-            border: 1px dashed rgba(255, 255, 255, 0.4);
-        }
-
-        .tetris-shape-l {
-            width: 64px;
-            height: 96px;
-            clip-path: polygon(0% 0%, 32px 0%, 32px 64px, 64px 64px, 64px 96px, 0% 96px);
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px dashed rgba(255, 122, 0, 0.5);
-        }
-
-        .tetris-shape-i {
-            width: 32px;
-            height: 128px;
-            background: rgba(255, 122, 0, 0.2);
-            border: 1px dashed rgba(255, 255, 255, 0.3);
         }
 
         .font-bebas { font-family: 'Bebas Neue', cursive; }
@@ -97,7 +65,7 @@
         .font-mono-tag { font-family: 'Space Mono', monospace; }
         .font-handwriting { font-family: 'Caveat', cursive; }
 
-        /* Estilo de Recorte de Papel (Cutout Badges) */
+        /* Badges de Colagem */
         .cutout-badge {
             background-color: var(--paper-white);
             color: #000000;
@@ -120,7 +88,7 @@
             border: 1px solid #000000;
         }
 
-        /* Fita Adesiva Transparente Digital (Washi Tape) */
+        /* Fita Adesiva (Washi Tape) */
         .tape-strip {
             position: absolute;
             top: -12px;
@@ -164,43 +132,41 @@
             pointer-events: none;
         }
 
-        /* Moldura Polaroid Colagem Interativa para Vídeos */
+        /* Molduras Polaroid */
         .polaroid-video-card {
             background: #ffffff;
             color: #000000;
             padding: 10px 10px 18px 10px;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.3s ease;
             position: relative;
             border: 1px solid rgba(0, 0, 0, 0.15);
             border-radius: 4px;
         }
 
         .polaroid-video-card:hover {
-            transform: scale(1.05) rotate(0deg) translateY(-8px) !important;
+            transform: scale(1.02) rotate(0deg) translateY(-5px) !important;
             z-index: 40;
             box-shadow: 0 20px 45px rgba(255, 122, 0, 0.5), 0 0 0 2px var(--orange);
         }
 
-        /* Polaroid Estilo Dark (Papel Escuro) */
         .polaroid-video-card-dark {
             background: #18181c;
             color: #ffffff;
             padding: 10px 10px 18px 10px;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.3s ease;
             position: relative;
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 4px;
         }
 
         .polaroid-video-card-dark:hover {
-            transform: scale(1.05) rotate(0deg) translateY(-8px) !important;
+            transform: scale(1.02) rotate(0deg) translateY(-5px) !important;
             z-index: 40;
             box-shadow: 0 20px 45px rgba(255, 122, 0, 0.5), 0 0 0 2px var(--orange);
         }
 
-        /* Polaroids da Seção Sobre Mim */
         .polaroid-card {
             background: #ffffff;
             color: #000000;
@@ -212,12 +178,12 @@
             border-radius: 3px;
         }
         .polaroid-card:hover {
-            transform: scale(1.1) rotate(0deg) !important;
+            transform: scale(1.08) rotate(0deg) !important;
             z-index: 30;
             box-shadow: 0 12px 30px rgba(255, 122, 0, 0.4);
         }
 
-        /* Efeito de Corte com Sombra Laranja Offset */
+        /* Foto Recortada */
         .photo-cutout-wrapper {
             position: relative;
             display: inline-block;
@@ -241,7 +207,7 @@
             border: 2px solid #ffffff;
         }
 
-        /* Caderno Quadriculado (Grid Notebook) */
+        /* Caderno Quadriculado */
         .notebook-grid-bg {
             background-color: #141416;
             background-image: 
@@ -265,15 +231,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 52px;
-            height: 52px;
+            width: 50px;
+            height: 50px;
             background: #ffffff;
             color: #000000;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             z-index: 25;
             transition: all 0.3s ease;
             box-shadow: 0 0 20px rgba(255, 122, 0, 0.6);
@@ -284,10 +250,10 @@
         .polaroid-video-card-dark:hover .stamp-play-btn {
             background: var(--orange);
             color: #ffffff;
-            transform: translate(-50%, -50%) scale(1.18);
+            transform: translate(-50%, -50%) scale(1.15);
         }
 
-        /* Modal de Vídeo */
+        /* Modal de Vídeo Responsivo */
         #projectModal {
             display: none;
             position: fixed;
@@ -298,7 +264,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
+            padding: 0.75rem;
         }
 
         .modal-content {
@@ -307,7 +273,9 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            max-height: 90vh;
+            max-height: 94vh;
+            overflow-y: auto;
+            border-radius: 0.75rem;
         }
 
         .video-container-fixed {
@@ -322,7 +290,8 @@
 
         .video-container-fixed.vertical {
             aspect-ratio: 9 / 16;
-            max-width: 330px;
+            max-width: min(320px, 75vw);
+            max-height: 58vh;
             margin: 0 auto;
         }
 
@@ -335,24 +304,35 @@
 
         .close-modal-btn {
             position: absolute;
-            top: -50px;
+            top: -45px;
             right: 0;
             background: #ff4444;
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             cursor: pointer;
-            z-index: 210;
+            z-index: 220;
             font-weight: bold;
             border: 2px solid #ffffff;
         }
 
+        @media (max-width: 640px) {
+            .close-modal-btn {
+                top: 8px;
+                right: 8px;
+                background: rgba(220, 38, 38, 0.95);
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+            }
+        }
+
         @media (min-width: 768px) {
-            .close-modal-btn { top: 0; right: -65px; width: 48px; height: 48px; font-size: 1.4rem; }
+            .close-modal-btn { top: 0; right: -60px; width: 46px; height: 46px; font-size: 1.3rem; }
         }
 
         body.modal-open { overflow: hidden; }
@@ -362,56 +342,58 @@
             color: #000000;
             font-weight: 900;
             text-transform: uppercase;
-            padding: 1.1rem 2.8rem;
+            padding: 1rem 2.4rem;
             border-radius: 4px;
             text-decoration: none;
             display: inline-block;
             letter-spacing: 1px;
             border: 2px solid #000000;
-            box-shadow: 5px 5px 0px var(--orange);
+            box-shadow: 4px 4px 0px var(--orange);
             transition: all 0.2s ease;
         }
 
         .btn-sticker:hover {
-            transform: translate(-3px, -3px);
-            box-shadow: 8px 8px 0px #ffffff;
+            transform: translate(-2px, -2px);
+            box-shadow: 7px 7px 0px #ffffff;
             background-color: var(--orange);
             color: #000000;
         }
 
         .animate-zoom { animation: zoomIn 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); }
         @keyframes zoomIn {
-            from { transform: scale(0.92); opacity: 0; }
+            from { transform: scale(0.94); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
     </style>
 </head>
 <body class="selection:bg-orange-500 selection:text-black">
 
-    <!-- Grid de Background Inspirado em Tetris / Encaixe de Edição -->
     <div class="tetris-bg-overlay"></div>
 
-    <nav class="fixed top-0 w-full z-50 bg-black/85 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-4 md:px-8 h-16 md:h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <span class="cutout-badge-orange text-sm md:text-base font-black font-bebas tracking-wider">AILTON S.</span>
-                <span class="text-[10px] font-mono-tag text-zinc-400 hidden sm:inline-block">// EDIÇÃO & MOTION DESIGN</span>
+    <!-- Navegação Otimizada Mobile -->
+    <nav class="fixed top-0 w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 h-16 md:h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2 sm:gap-3">
+                <span class="cutout-badge-orange text-xs sm:text-sm md:text-base font-black font-bebas tracking-wider">AILTON S.</span>
+                <span class="text-[9px] sm:text-[10px] font-mono-tag text-zinc-400 hidden sm:inline-block">// EDIÇÃO & MOTION DESIGN</span>
             </div>
             
-            <div class="flex gap-4 md:gap-8 text-[10px] md:text-xs font-bold uppercase tracking-widest text-zinc-300">
+            <div class="flex gap-2.5 sm:gap-4 md:gap-7 text-[9px] sm:text-[10px] md:text-xs font-bold uppercase tracking-wider md:tracking-widest text-zinc-300 overflow-x-auto whitespace-nowrap py-1">
                 <a href="#showreel" class="hover:text-orange-500 transition hover:underline">Showreel</a>
                 <a href="#servicos" class="hover:text-orange-500 transition hover:underline">Serviços</a>
                 <a href="#portfolio" class="hover:text-orange-500 transition hover:underline">Projetos</a>
+                <a href="#colorgrade" class="hover:text-orange-500 text-orange-400 transition hover:underline">Color Grading</a>
                 <a href="#sobre" class="hover:text-orange-500 transition hover:underline">Sobre Mim</a>
+                <a href="#contato" class="hover:text-orange-500 transition hover:underline">Contato</a>
             </div>
         </div>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-4 md:px-8 pt-28 md:pt-36 pb-24 flex flex-col gap-20 md:gap-32 relative z-10">
+    <main class="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 pt-24 md:pt-36 pb-20 flex flex-col gap-16 md:gap-32 relative z-10">
 
-        <section id="showreel" class="flex flex-col gap-8 md:gap-12 relative">
+        <!-- SHOWREEL PRINCIPAL -->
+        <section id="showreel" class="flex flex-col gap-6 md:gap-12 relative">
             
-            <!-- Carimbo Giratório no Canto Superior -->
             <div class="hidden md:block absolute -top-10 right-4 z-20 pointer-events-none">
                 <div class="relative w-28 h-28 flex items-center justify-center">
                     <svg class="w-full h-full stamp-spin text-zinc-500 fill-current" viewBox="0 0 100 100">
@@ -424,10 +406,7 @@
                 </div>
             </div>
 
-            <!-- Título Principal de Colagem -->
             <div class="text-left flex flex-col gap-2 max-w-4xl relative">
-                
-                <!-- Selo de Conceito Tetris / Encaixe Perfeito -->
                 <div class="inline-flex items-center gap-2 bg-zinc-900 border border-white/20 px-3 py-1 rounded w-fit mb-2">
                     <div class="w-3 h-3 bg-orange-500 inline-block"></div>
                     <div class="w-3 h-3 bg-white inline-block"></div>
@@ -435,22 +414,22 @@
                     <span class="text-[10px] font-mono-tag text-zinc-300 uppercase">[ EDITAR É ENCAIXAR CADA PEÇA COM PRECISÃO ]</span>
                 </div>
 
-                <div class="flex flex-wrap items-baseline gap-3">
-                    <span class="cutout-badge text-xl md:text-3xl uppercase font-bebas">NARRATIVAS VISUAIS</span>
-                    <span class="font-handwriting text-3xl md:text-5xl text-orange-400 font-bold tracking-wide -rotate-1">& Impacto</span>
+                <div class="flex flex-wrap items-baseline gap-2 sm:gap-3">
+                    <span class="cutout-badge text-lg sm:text-xl md:text-3xl uppercase font-bebas">NARRATIVAS VISUAIS</span>
+                    <span class="font-handwriting text-2xl sm:text-3xl md:text-5xl text-orange-400 font-bold tracking-wide -rotate-1">& Impacto</span>
                 </div>
                 
-                <h1 class="font-bebas text-6xl sm:text-8xl md:text-9xl leading-[0.88] uppercase text-white tracking-tight">
+                <h1 class="font-bebas text-5xl sm:text-7xl md:text-9xl leading-[0.9] uppercase text-white tracking-tight">
                     AILTON S. <span class="text-orange-500">// PORTFÓLIO</span>
                 </h1>
                 
-                <p class="font-mono-tag text-zinc-400 text-xs md:text-sm tracking-wider uppercase mt-2">
+                <p class="font-mono-tag text-zinc-400 text-[11px] sm:text-xs md:text-sm tracking-wider uppercase mt-1">
                     COLOR GRADING • SOUND DESIGN • VFX & MOTION
                 </p>
             </div>
 
-            <!-- Polaroid / Frame de Colagem do Showreel Principal -->
-            <div class="polaroid-video-card-dark rounded-xl aspect-video overflow-hidden group cursor-pointer relative border-2 border-white/20 -rotate-1 hover:rotate-0">
+            <div class="polaroid-video-card-dark rounded-xl aspect-video overflow-hidden group cursor-pointer relative border-2 border-white/20 -rotate-1 hover:rotate-0"
+                 onclick="openModal('Visão Cinematográfica 2026', 'Showreel principal destacando a identidade visual, cortes rítmicos e pós-produção.', 'https://player.vimeo.com/video/1170674437', false)">
                 <div class="tape-strip"></div>
                 <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1600" 
                      class="w-full h-full object-cover grayscale opacity-50 group-hover:opacity-80 group-hover:scale-105 transition duration-700 rounded" 
@@ -462,42 +441,43 @@
                     <i class="fas fa-play ml-1"></i>
                 </div>
 
-                <div class="absolute bottom-6 left-6 md:bottom-8 md:left-8 z-20 flex flex-col gap-2">
-                    <span class="cutout-badge-orange text-xs font-mono-tag">SHOWREEL PRINCIPAL</span>
-                    <h2 class="font-bebas text-3xl md:text-5xl uppercase leading-none text-white">VISÃO CINEMATOGRÁFICA 2026</h2>
-                    <p class="text-xs text-zinc-300 font-handwriting text-2xl text-orange-300">&lt;3 Produção Final — Ailton S.</p>
+                <div class="absolute bottom-4 left-4 md:bottom-8 md:left-8 z-20 flex flex-col gap-1.5 md:gap-2">
+                    <span class="cutout-badge-orange text-[10px] md:text-xs font-mono-tag">SHOWREEL PRINCIPAL</span>
+                    <h2 class="font-bebas text-2xl sm:text-3xl md:text-5xl uppercase leading-none text-white">VISÃO CINEMATOGRÁFICA 2026</h2>
+                    <p class="text-xs text-zinc-300 font-handwriting text-xl md:text-2xl text-orange-300">&lt;3 Produção Final — Ailton S.</p>
                 </div>
 
-                <div class="absolute top-4 right-4 bg-white text-black font-mono-tag text-[10px] font-bold px-3 py-1 rotate-3 uppercase border border-black shadow-md z-20">
+                <div class="absolute top-4 right-4 bg-white text-black font-mono-tag text-[9px] md:text-[10px] font-bold px-2 md:px-3 py-1 rotate-3 uppercase border border-black shadow-md z-20">
                     HD • 4K • REELS
                 </div>
             </div>
         </section>
 
-        <section id="servicos" class="flex flex-col gap-10">
+        <!-- SERVIÇOS -->
+        <section id="servicos" class="flex flex-col gap-8 md:gap-10">
             <div class="flex items-center gap-4">
                 <span class="cutout-badge text-lg md:text-2xl font-bebas">SERVIÇOS DE EDIÇÃO</span>
                 <div class="h-[1px] bg-white/15 flex-grow"></div>
                 <span class="font-mono-tag text-xs text-zinc-500 uppercase hidden md:inline">[ SOLUÇÕES AILTON S. ]</span>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6">
                 
                 <!-- Serviço 1 -->
-                <div class="polaroid-video-card-dark rounded-xl p-8 flex flex-col justify-between gap-6 relative rotate-1 hover:rotate-0">
+                <div class="polaroid-video-card-dark rounded-xl p-6 md:p-8 flex flex-col justify-between gap-6 relative rotate-1 hover:rotate-0">
                     <div class="tape-strip-corner-left"></div>
                     <div class="flex justify-between items-start">
                         <span class="font-mono-tag text-2xl font-bold text-orange-500">01 /</span>
                         <i class="fas fa-mobile-alt text-2xl text-zinc-400"></i>
                     </div>
                     <div>
-                        <h3 class="font-bebas text-3xl text-white mb-2 uppercase">FORMATOS CURTOS</h3>
-                        <p class="font-mono-tag text-xs text-zinc-400 leading-relaxed mb-4">[ REELS, SHORTS, TIKTOK & INSTAGRAM ]</p>
-                        <p class="text-sm text-zinc-300 font-light leading-relaxed">
+                        <h3 class="font-bebas text-2xl sm:text-3xl text-white mb-2 uppercase">FORMATOS CURTOS</h3>
+                        <p class="font-mono-tag text-xs text-zinc-400 leading-relaxed mb-3">[ REELS, SHORTS, TIKTOK & INSTAGRAM ]</p>
+                        <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
                             Edições dinâmicas com foco total em retenção de audiência, cortes precisos, legendas animadas e ritmo acelerado para marcas e criadores.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-white/10 flex flex-wrap gap-2 text-[10px] font-mono-tag text-zinc-400">
+                    <div class="pt-3 border-t border-white/10 flex flex-wrap gap-2 text-[10px] font-mono-tag text-zinc-400">
                         <span class="bg-white/5 px-2 py-1 border border-white/10">Retenção</span>
                         <span class="bg-white/5 px-2 py-1 border border-white/10">Gatilhos Visuais</span>
                         <span class="bg-white/5 px-2 py-1 border border-white/10">Color Grading</span>
@@ -505,40 +485,40 @@
                 </div>
 
                 <!-- Serviço 2 -->
-                <div class="polaroid-video-card-dark rounded-xl p-8 flex flex-col justify-between gap-6 relative -rotate-1 hover:rotate-0">
+                <div class="polaroid-video-card-dark rounded-xl p-6 md:p-8 flex flex-col justify-between gap-6 relative -rotate-1 hover:rotate-0">
                     <div class="tape-strip"></div>
                     <div class="flex justify-between items-start">
                         <span class="font-mono-tag text-2xl font-bold text-white">02 /</span>
                         <i class="fas fa-film text-2xl text-zinc-400"></i>
-                        </div>
+                    </div>
                     <div>
-                        <h3 class="font-bebas text-3xl text-white mb-2 uppercase">EDIÇÃO CINEMATOGRÁFICA</h3>
-                        <p class="font-mono-tag text-xs text-zinc-400 leading-relaxed mb-4">[ LONG FORM / YOUTUBE / DOCS ]</p>
-                        <p class="text-sm text-zinc-300 font-light leading-relaxed">
+                        <h3 class="font-bebas text-2xl sm:text-3xl text-white mb-2 uppercase">EDIÇÃO CINEMATOGRÁFICA</h3>
+                        <p class="font-mono-tag text-xs text-zinc-400 leading-relaxed mb-3">[ LONG FORM / YOUTUBE / DOCS ]</p>
+                        <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
                             Narrativas mais densas, storytelling envolvente, ritmo refinado e color grading profissional para vídeos institucionais e canais no YouTube.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-white/10 flex flex-wrap gap-2 text-[10px] font-mono-tag text-zinc-400">
+                    <div class="pt-3 border-t border-white/10 flex flex-wrap gap-2 text-[10px] font-mono-tag text-zinc-400">
                         <span class="bg-white/5 px-2 py-1 border border-white/10">Storytelling</span>
                         <span class="bg-white/5 px-2 py-1 border border-white/10">Color Grading</span>
                     </div>
                 </div>
 
                 <!-- Serviço 3 -->
-                <div class="polaroid-video-card-dark rounded-xl p-8 flex flex-col justify-between gap-6 relative rotate-2 hover:rotate-0">
+                <div class="polaroid-video-card-dark rounded-xl p-6 md:p-8 flex flex-col justify-between gap-6 relative rotate-2 hover:rotate-0">
                     <div class="tape-strip-corner-right"></div>
                     <div class="flex justify-between items-start">
                         <span class="font-mono-tag text-2xl font-bold text-orange-500">03 /</span>
                         <i class="fas fa-magic text-2xl text-zinc-400"></i>
                     </div>
                     <div>
-                        <h3 class="font-bebas text-3xl text-white mb-2 uppercase">MOTION GRAPHICS & VFX</h3>
-                        <p class="font-mono-tag text-xs text-zinc-400 leading-relaxed mb-4">[ MOTION & EFEITOS VISUAIS ]</p>
-                        <p class="text-sm text-zinc-300 font-light leading-relaxed">
+                        <h3 class="font-bebas text-2xl sm:text-3xl text-white mb-2 uppercase">MOTION GRAPHICS & VFX</h3>
+                        <p class="font-mono-tag text-xs text-zinc-400 leading-relaxed mb-3">[ MOTION & EFEITOS VISUAIS ]</p>
+                        <p class="text-xs sm:text-sm text-zinc-300 font-light leading-relaxed">
                             Vinhetas, elementos gráficos animados, identidades visuais em movimento e pós-produção avançada com After Effects.
                         </p>
                     </div>
-                    <div class="pt-4 border-t border-white/10 flex flex-wrap gap-2 text-[10px] font-mono-tag text-zinc-400">
+                    <div class="pt-3 border-t border-white/10 flex flex-wrap gap-2 text-[10px] font-mono-tag text-zinc-400">
                         <span class="bg-white/5 px-2 py-1 border border-white/10">After Effects</span>
                         <span class="bg-white/5 px-2 py-1 border border-white/10">Motion</span>
                     </div>
@@ -547,25 +527,26 @@
             </div>
         </section>
 
-        <section id="portfolio" class="flex flex-col gap-12">
+        <!-- PROJETOS -->
+        <section id="portfolio" class="flex flex-col gap-10 md:gap-12">
             
             <!-- SUBSEÇÃO 1: REELS & SOCIAL -->
-            <div class="flex flex-col gap-8">
+            <div class="flex flex-col gap-6 md:gap-8">
                 <div class="flex items-center gap-4">
                     <span class="cutout-badge-orange text-lg md:text-2xl font-bebas">FORMATOS CURTOS & REELS</span>
                     <div class="h-[1px] bg-white/15 flex-grow"></div>
                     <span class="font-handwriting text-zinc-300 text-xl text-right hidden sm:inline">&lt;3 Clique no Polaroid para assistir</span>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 md:gap-6">
                     
                     <!-- 1. CONSTRUTORA LYTORÂNEA -->
-                    <div class="polaroid-video-card -rotate-3 hover:rotate-0 group cursor-pointer"
-                         onclick="openModal('Construtora Lytorânea', 'Melhores momentos da empresa no ano de 2025 com takes dinâmicos e ritmo moderno.', 'https://player.vimeo.com/video/1170674437?autoplay=1', true)">
+                    <div class="polaroid-video-card -rotate-2 hover:rotate-0 group cursor-pointer"
+                         onclick="openModal('Construtora Lytorânea', 'Melhores momentos da empresa no ano de 2025 com takes dinâmicos e ritmo moderno.', 'https://player.vimeo.com/video/1170674437', true)">
                         <div class="tape-strip"></div>
                         <div class="aspect-[9/16] bg-zinc-900 overflow-hidden relative rounded mb-2">
                             <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800" 
-                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700 opacity-80" alt="Lytorânea">
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500 opacity-80" alt="Lytorânea">
                             <div class="stamp-play-btn"><i class="fas fa-play ml-1"></i></div>
                         </div>
                         <div class="text-center px-1">
@@ -576,11 +557,11 @@
 
                     <!-- 2. DOM BOSCO PROMOTION -->
                     <div class="polaroid-video-card-dark rotate-2 hover:rotate-0 group cursor-pointer"
-                         onclick="openModal('Dom Bosco Promotion', 'Cobertura direta de evento esportivo com cortes rápidos e energia.', 'https://player.vimeo.com/video/1204692830?autoplay=1', true)">
+                         onclick="openModal('Dom Bosco Promotion', 'Cobertura direta de evento esportivo com cortes rápidos e energia.', 'https://player.vimeo.com/video/1204692830', true)">
                         <div class="tape-strip-corner-right"></div>
                         <div class="aspect-[9/16] bg-zinc-900 overflow-hidden relative rounded mb-2">
                             <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=600" 
-                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700 opacity-80" alt="Dom Bosco">
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500 opacity-80" alt="Dom Bosco">
                             <div class="stamp-play-btn"><i class="fas fa-play ml-1"></i></div>
                         </div>
                         <div class="text-center px-1">
@@ -590,12 +571,12 @@
                     </div>
 
                     <!-- 3. FASHION BLOGGER -->
-                    <div class="polaroid-video-card -rotate-2 hover:rotate-0 group cursor-pointer"
-                         onclick="openModal('Fashion Blogger | Transição', 'Edição dinâmica de blogueira de moda focada em ritmos de transição.', 'https://player.vimeo.com/video/1170691408?autoplay=1', true)">
+                    <div class="polaroid-video-card -rotate-1 hover:rotate-0 group cursor-pointer"
+                         onclick="openModal('Fashion Blogger | Transição', 'Edição dinâmica de blogueira de moda focada em ritmos de transição.', 'https://player.vimeo.com/video/1170691408', true)">
                         <div class="tape-strip-corner-left"></div>
                         <div class="aspect-[9/16] bg-zinc-900 overflow-hidden relative rounded mb-2">
                             <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&q=80&w=600" 
-                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700 opacity-80" alt="Fashion Blogger">
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500 opacity-80" alt="Fashion Blogger">
                             <div class="stamp-play-btn"><i class="fas fa-play ml-1"></i></div>
                         </div>
                         <div class="text-center px-1">
@@ -605,12 +586,12 @@
                     </div>
 
                     <!-- 4. SAÚDE -->
-                    <div class="polaroid-video-card-dark rotate-3 hover:rotate-0 group cursor-pointer"
-                         onclick="openModal('Saúde', 'Vídeo dinâmico para a área da saúde.', 'https://player.vimeo.com/video/1176595662?autoplay=1', true)">
+                    <div class="polaroid-video-card-dark rotate-2 hover:rotate-0 group cursor-pointer"
+                         onclick="openModal('Saúde', 'Vídeo dinâmico para a área da saúde.', 'https://player.vimeo.com/video/1176595662', true)">
                         <div class="tape-strip"></div>
                         <div class="aspect-[9/16] bg-zinc-900 overflow-hidden relative rounded mb-2">
                             <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=800&auto=format&fit=crop" 
-                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700 opacity-80" alt="Saúde">
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500 opacity-80" alt="Saúde">
                             <div class="stamp-play-btn"><i class="fas fa-play ml-1"></i></div>
                         </div>
                         <div class="text-center px-1">
@@ -620,12 +601,12 @@
                     </div>
 
                     <!-- 5. SEGURO DE VIDA -->
-                    <div class="polaroid-video-card -rotate-1 hover:rotate-0 group cursor-pointer"
-                         onclick="openModal('Seguro de Vida', 'Vídeo dinâmico e explicativo.', 'https://player.vimeo.com/video/1176594242?autoplay=1', true)">
+                    <div class="polaroid-video-card -rotate-2 hover:rotate-0 group cursor-pointer"
+                         onclick="openModal('Seguro de Vida', 'Vídeo dinâmico e explicativo.', 'https://player.vimeo.com/video/1176594242', true)">
                         <div class="tape-strip-corner-right"></div>
                         <div class="aspect-[9/16] bg-zinc-900 overflow-hidden relative rounded mb-2">
                             <img src="https://images.unsplash.com/photo-1579389083046-e3df9c2b3325?q=80&w=800&auto=format&fit=crop" 
-                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700 opacity-80" alt="Seguro de Vida">
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500 opacity-80" alt="Seguro de Vida">
                             <div class="stamp-play-btn"><i class="fas fa-play ml-1"></i></div>
                         </div>
                         <div class="text-center px-1">
@@ -637,21 +618,22 @@
                 </div>
             </div>
 
-            <div class="flex flex-col gap-8 mt-6">
+            <!-- SUBSEÇÃO 2: MOTION GRAPHICS & ANIMAÇÃO -->
+            <div class="flex flex-col gap-6 md:gap-8 mt-4">
                 <div class="flex items-center gap-4">
                     <span class="cutout-badge text-lg md:text-2xl font-bebas">MOTION GRAPHICS & ANIMAÇÃO</span>
                     <div class="h-[1px] bg-white/15 flex-grow"></div>
                 </div>
 
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 md:gap-6">
                     
                     <!-- 1. NATURAL PETS -->
                     <div class="polaroid-video-card-dark rotate-2 hover:rotate-0 group cursor-pointer"
-                         onclick="openModal('Motion Natural Pets', 'Rebrand da marca focado em destacar a nova identidade visual.', 'https://player.vimeo.com/video/1170673733?autoplay=1', true)">
+                         onclick="openModal('Motion Natural Pets', 'Rebrand da marca focado em destacar a nova identidade visual.', 'https://player.vimeo.com/video/1170673733', true)">
                         <div class="tape-strip"></div>
                         <div class="aspect-[9/16] bg-zinc-900 overflow-hidden relative rounded mb-2">
                             <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=600" 
-                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700 opacity-80" alt="Natural Pets">
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500 opacity-80" alt="Natural Pets">
                             <div class="stamp-play-btn"><i class="fas fa-play ml-1"></i></div>
                         </div>
                         <div class="text-center px-1">
@@ -662,11 +644,11 @@
 
                     <!-- 2. MOTION NOVO MERCADO -->
                     <div class="polaroid-video-card -rotate-2 hover:rotate-0 group cursor-pointer"
-                         onclick="openModal('Motion Novo Mercado', 'Motion animation para comunicação digital.', 'https://player.vimeo.com/video/1179250075?autoplay=1', true)">
+                         onclick="openModal('Motion Novo Mercado', 'Motion animation para comunicação digital.', 'https://player.vimeo.com/video/1179250075', true)">
                         <div class="tape-strip-corner-left"></div>
                         <div class="aspect-[9/16] bg-zinc-900 overflow-hidden relative rounded mb-2">
                             <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=800" 
-                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700 opacity-80" alt="Novo Mercado">
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500 opacity-80" alt="Novo Mercado">
                             <div class="stamp-play-btn"><i class="fas fa-play ml-1"></i></div>
                         </div>
                         <div class="text-center px-1">
@@ -676,12 +658,12 @@
                     </div>
 
                     <!-- 3. MOTION DESIGN KZ MÍDIAS -->
-                    <div class="polaroid-video-card-dark rotate-3 hover:rotate-0 group cursor-pointer"
-                         onclick="openModal('Motion Design KZ Mídias', 'Motion sem som a pedido do cliente.', 'https://player.vimeo.com/video/1179257686?autoplay=1', true)">
+                    <div class="polaroid-video-card-dark rotate-2 hover:rotate-0 group cursor-pointer"
+                         onclick="openModal('Motion Design KZ Mídias', 'Motion sem som a pedido do cliente.', 'https://player.vimeo.com/video/1179257686', true)">
                         <div class="tape-strip-corner-right"></div>
                         <div class="aspect-[9/16] bg-zinc-900 overflow-hidden relative rounded mb-2">
                             <img src="https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=800&auto=format&fit=crop" 
-                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition duration-700 opacity-80" alt="KZ Mídias">
+                                 class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition duration-500 opacity-80" alt="KZ Mídias">
                             <div class="stamp-play-btn"><i class="fas fa-play ml-1"></i></div>
                         </div>
                         <div class="text-center px-1">
@@ -701,7 +683,7 @@
             </div>
 
             <!-- SUBSEÇÃO 3: LONG FORM -->
-            <div class="flex flex-col gap-6 mt-6">
+            <div class="flex flex-col gap-6 mt-4">
                 <div class="flex items-center gap-4">
                     <span class="cutout-badge text-lg md:text-2xl font-bebas">EDIÇÕES CINEMATOGRÁFICAS (VÍDEOS HORIZONTAIS)</span>
                     <div class="h-[1px] bg-white/15 flex-grow"></div>
@@ -731,8 +713,7 @@
                         </div>
                     </div>
 
-                    <!-- Espaço reservado para próximo projeto -->
-                    <div class="polaroid-video-card-dark p-8 md:p-10 text-center border-dashed border-2 border-white/20 -rotate-1 min-h-[260px] flex flex-col items-center justify-center">
+                    <div class="polaroid-video-card-dark p-8 md:p-10 text-center border-dashed border-2 border-white/20 -rotate-1 min-h-[240px] flex flex-col items-center justify-center">
                         <h3 class="font-bebas text-3xl md:text-5xl text-zinc-500 tracking-widest uppercase">PRÓXIMO PROJETO</h3>
                         <p class="font-handwriting text-zinc-500 text-lg md:text-xl mt-2">&lt;3 Em breve novos vídeos horizontais</p>
                     </div>
@@ -741,11 +722,147 @@
 
         </section>
 
+        <!-- SEÇÃO: COLOR GRADE (CAROL + ÁRVORE DE NODES COM LINKS DIRETOS) -->
+        <section id="colorgrade" class="flex flex-col gap-8 md:gap-10">
+            <div class="flex items-center gap-4">
+                <span class="cutout-badge-orange text-lg md:text-2xl font-bebas">COLOR GRADE</span>
+                <div class="h-[1px] bg-white/15 flex-grow"></div>
+                <span class="font-mono-tag text-xs text-zinc-500 uppercase hidden md:inline">[ DAVINCI RESOLVE WORKFLOW ]</span>
+            </div>
+
+            <!-- Grid: Vídeo Vertical Carol + Árvore de Nodes -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- COLUNA 1: CARD POLAROID DA CAROL (9:16) COM LINK DIRETO DA IMAGEM -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="polaroid-video-card-dark -rotate-1 hover:rotate-0 group cursor-pointer w-full max-w-[340px] relative"
+                         onclick="openModal('Carol // Color Grading (iPhone HDR para Rec.709)', 'Arquivo gravado em HDR pelo iPhone e convertido com precisão para Rec.709 no DaVinci Resolve. Tratamento de balanço, curvas de contraste, isolamento de pele e look cinematográfico.', 'https://player.vimeo.com/video/1224936759', true)">
+                        
+                        <div class="tape-strip"></div>
+                        
+                        <!-- Selo de Espaço de Cor -->
+                        <div class="absolute top-4 left-4 bg-orange-500 text-black font-mono-tag text-[9px] font-bold px-2.5 py-0.5 -rotate-3 uppercase border border-black shadow z-20">
+                            IPHONE HDR → REC.709
+                        </div>
+
+                        <!-- Badge Proporção -->
+                        <div class="absolute top-4 right-4 bg-white text-black font-mono-tag text-[9px] font-bold px-2 py-0.5 rotate-3 uppercase border border-black shadow z-20">
+                            9:16 VERTICAL
+                        </div>
+
+                        <!-- Container da Thumbnail com Imagem Direta da Carol (Antes e Depois) -->
+                        <div class="aspect-[9/16] bg-zinc-900 overflow-hidden relative rounded mb-3 border border-white/10 mt-6 group">
+                            
+                            <img id="colorGradeThumb"
+                                 src="https://i.postimg.cc/MZb2YkHQ/ANTES-DE-DEPOIS.png" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700 opacity-95" 
+                                 alt="Antes e Depois — Carol">
+
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 pointer-events-none"></div>
+
+                            <!-- Botão de Play Central -->
+                            <div class="stamp-play-btn">
+                                <i class="fas fa-play ml-1"></i>
+                            </div>
+
+                            <!-- Etiqueta inferior no card -->
+                            <div class="absolute bottom-3 left-3 right-3 text-center pointer-events-none">
+                                <span class="text-[10px] font-mono-tag text-orange-400 font-bold uppercase tracking-wider block bg-black/80 py-1 px-2 rounded backdrop-blur-sm border border-orange-500/40">
+                                    [ CAROL • CLIQUE PARA ASSISTIR ]
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Informações do Card -->
+                        <div class="text-center px-2">
+                            <span class="text-[10px] font-mono-tag text-orange-400 font-bold uppercase block mb-1">[ CAROL • ANTES & DEPOIS ]</span>
+                            <h4 class="font-bebas text-2xl md:text-3xl text-white tracking-wide leading-tight uppercase">COLOR GRADING CINEMATOGRÁFICO</h4>
+                            <p class="font-handwriting text-lg text-orange-300 mt-1">&lt;3 DaVinci Resolve Studio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUNA 2: ÁRVORE DE NODES COM LINK DIRETO & ETAPAS -->
+                <div class="lg:col-span-7 flex flex-col gap-6">
+                    
+                    <div class="polaroid-video-card-dark rounded-xl p-5 md:p-8 relative rotate-1 hover:rotate-0 border-2 border-white/15">
+                        <div class="tape-strip-corner-right"></div>
+                        
+                        <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="cutout-badge text-xs font-mono-tag font-bold">NODE TREE // DAVINCI</span>
+                                <h3 class="font-bebas text-2xl md:text-3xl text-white uppercase tracking-wider">Árvore de Nodes</h3>
+                            </div>
+                            <span class="font-mono-tag text-[10px] text-orange-400 border border-orange-500/30 px-2 py-1 bg-orange-500/10 rounded">
+                                DaVinci Resolve Studio
+                            </span>
+                        </div>
+
+                        <!-- Foto da Árvore de Nodes com Link Direto da Imagem Enviada -->
+                        <div class="aspect-video bg-[#131315] rounded-lg overflow-hidden border-2 border-white/20 relative group flex items-center justify-center shadow-inner">
+                            <img id="nodeTreeImg" 
+                                 src="https://i.postimg.cc/QdzRMh4f/ARVORE-DE-NODE.png" 
+                                 class="w-full h-full object-contain p-1 opacity-95 group-hover:opacity-100 transition duration-500" 
+                                 alt="Árvore de Nodes DaVinci Resolve — Ailton S.">
+                            
+                            <div class="absolute bottom-2 left-3 bg-black/85 px-3 py-1 rounded border border-white/20 text-[10px] font-mono-tag text-zinc-300">
+                                <i class="fas fa-sitemap text-orange-500 mr-1"></i> Estrutura de Nós do Projeto
+                            </div>
+                        </div>
+
+                        <!-- Transcrição Técnica do Processo Baseada na Árvore de Nós -->
+                        <div class="mt-6 flex flex-col gap-3 font-mono-tag text-xs border-t border-white/10 pt-4">
+                            <span class="font-bebas text-xl text-orange-400 uppercase tracking-wide flex items-center gap-2">
+                                <i class="fas fa-sliders-h text-sm"></i> Fluxo de Tratamento de Cor
+                            </span>
+                            
+                            <div class="space-y-2 text-zinc-300 leading-relaxed font-sans text-xs md:text-sm">
+                                <div class="flex items-start gap-2 bg-white/5 p-2.5 rounded border border-white/10">
+                                    <span class="text-orange-400 font-mono-tag font-bold text-xs mt-0.5">01.</span>
+                                    <div>
+                                        <b class="text-white font-mono-tag text-xs block">CST IN (Entrada de Espaço de Cor):</b>
+                                        Conversão do sinal HDR nativo do iPhone para o espaço de trabalho da timeline, preservando latitude e alcance dinâmico.
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-2 bg-white/5 p-2.5 rounded border border-white/10">
+                                    <span class="text-orange-400 font-mono-tag font-bold text-xs mt-0.5">02.</span>
+                                    <div>
+                                        <b class="text-white font-mono-tag text-xs block">Primárias, Balanço & Exposição (EXP / BAL / SAT / CNT):</b>
+                                        Correção de exposição e balanço cromático com rodas HDR, além de controle fino de saturação e curva de contraste.
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-2 bg-white/5 p-2.5 rounded border border-white/10">
+                                    <span class="text-orange-400 font-mono-tag font-bold text-xs mt-0.5">03.</span>
+                                    <div>
+                                        <b class="text-white font-mono-tag text-xs block">Secundárias, Tons de Pele & Máscaras (SKIN / MASK / LUZ / SOMBRA):</b>
+                                        Isolamento preciso do tom de pele com qualificador, associado a máscaras rastreadas e modelagem de luz e sombra.
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-2 bg-white/5 p-2.5 rounded border border-white/10">
+                                    <span class="text-orange-400 font-mono-tag font-bold text-xs mt-0.5">04.</span>
+                                    <div>
+                                        <b class="text-white font-mono-tag text-xs block">CST OUT (Saída Rec.709):</b>
+                                        Transformação de saída para o espaço de cor de entrega Rec.709 (Gamma 2.4), assegurando calibração padronizada em telas e redes sociais.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SOBRE MIM (COM FOTO PRINCIPAL E OS 3 POLAROIDS) -->
         <section id="sobre" class="notebook-grid-bg rounded-3xl p-6 md:p-14 relative overflow-hidden border-2 border-white/20 shadow-2xl">
             
             <div class="tape-strip"></div>
 
-            <!-- Carimbos e Selos estilo Tape/Cutout -->
             <div class="absolute top-4 right-6 bg-white text-black font-mono-tag text-[10px] font-bold px-3 py-1 rotate-2 uppercase border border-black shadow-md z-10">
                 MAIS DE 2 ANOS DE EXPERIÊNCIA NO MERCADO PROFISSIONALMENTE
             </div>
@@ -759,23 +876,19 @@
                 <!-- COLUNA ESQUERDA: FOTO RECORTADA + POLAROIDS -->
                 <div class="flex flex-col items-center gap-8 w-full lg:w-5/12 shrink-0">
                     
-                    <!-- Foto Principal com Sombra Offset Recortada -->
                     <div class="photo-cutout-wrapper max-w-[280px] md:max-w-[320px]">
                         <img src="https://iili.io/BqKLgTb.png" 
                              class="w-full h-auto grayscale hover:grayscale-0 transition duration-500" 
                              alt="Ailton Santos Perfil"
                              onerror="this.onerror=null; this.src='https://i.postimg.cc/13Yxqs8Q/minha-foto-01.png';">
                         
-                        <!-- Badge "Feito por Ailton S." -->
                         <div class="absolute -bottom-4 -left-4 bg-white text-black font-mono-tag text-xs font-bold px-3 py-1 -rotate-3 border-2 border-black shadow-lg z-20">
                             AILTON S. STUDIO
                         </div>
                     </div>
 
-                    <!-- Mini Galeria de Polaroids com Rabiscos -->
                     <div class="flex justify-center items-center gap-2 md:gap-4 w-full pt-4">
                         
-                        <!-- Polaroid 1: Timeline Premiere Pro -->
                         <div class="polaroid-card -rotate-6 w-24 md:w-28 text-center cursor-pointer" title="Timeline do Premiere Pro">
                             <div class="aspect-square bg-zinc-900 overflow-hidden mb-1 border border-zinc-300">
                                 <img src="https://static.skillshare.com/uploads/project/517325/cover_1242_0cd6a4831762f21d348e34043e99ef8e.jpg" 
@@ -785,7 +898,6 @@
                             <span class="font-handwriting text-xs md:text-sm font-bold text-zinc-900 leading-none">&lt;3 Premiere Timeline</span>
                         </div>
 
-                        <!-- Polaroid 2: Color Grading DaVinci Resolve -->
                         <div class="polaroid-card rotate-3 w-24 md:w-28 text-center cursor-pointer" title="Vectorscope do DaVinci Resolve">
                             <div class="aspect-square bg-zinc-900 overflow-hidden mb-1 border border-zinc-300">
                                 <img src="https://blog.frame.io/wp-content/uploads/2023/10/davinci-resolve-enable-qualifier-focus-in-scopes.jpg" 
@@ -795,7 +907,6 @@
                             <span class="font-handwriting text-xs md:text-sm font-bold text-zinc-900 leading-none">DaVinci Vectorscope</span>
                         </div>
 
-                        <!-- Polaroid 3: Motion Design -->
                         <div class="polaroid-card -rotate-2 w-24 md:w-28 text-center cursor-pointer" title="Motion Graphics & Animação">
                             <div class="aspect-square bg-zinc-900 overflow-hidden mb-1 border border-zinc-300">
                                 <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=500&auto=format&fit=crop" 
@@ -812,7 +923,6 @@
                 <!-- COLUNA DIREITA: BIO, EXPERIÊNCIA, ENFOQUE E FERRAMENTAS -->
                 <div class="flex flex-col gap-8 w-full lg:w-7/12">
                     
-                    <!-- Apresentação Principal -->
                     <div>
                         <div class="flex items-center gap-3 mb-2">
                             <h2 class="font-bebas text-5xl md:text-7xl uppercase leading-none text-white">
@@ -825,10 +935,8 @@
                         </p>
                     </div>
 
-                    <!-- Duas Colunas: Experiência & Enfoque -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-white/10">
                         
-                        <!-- Coluna 1: Experiência / Trajetória -->
                         <div class="flex flex-col gap-3">
                             <h3 class="font-bebas text-2xl text-orange-500 uppercase tracking-wider flex items-center gap-2">
                                 <i class="fas fa-history text-xs"></i> Experiência & Trajetória
@@ -849,7 +957,6 @@
                             </div>
                         </div>
 
-                        <!-- Coluna 2: Enfoque / Especialidades -->
                         <div class="flex flex-col gap-3">
                             <h3 class="font-bebas text-2xl text-white uppercase tracking-wider flex items-center gap-2">
                                 <i class="fas fa-bullseye text-orange-500 text-xs"></i> Enfoque Técnico
@@ -877,7 +984,6 @@
 
                     </div>
 
-                    <!-- Softwares & Ferramentas -->
                     <div class="pt-4 border-t border-white/10">
                         <span class="font-bebas text-xl text-zinc-400 uppercase block mb-3">Softwares // Principais</span>
                         
@@ -910,20 +1016,32 @@
 
         </section>
 
-        <section class="text-center py-10 flex flex-col items-center gap-8">
+        <!-- SEÇÃO: ENTRAR EM CONTATO (CTA / WHATSAPP / E-MAIL) -->
+        <section id="contato" class="text-center py-12 flex flex-col items-center gap-8 border-t border-white/10">
             <span class="cutout-badge-orange text-sm font-mono-tag">VAMOS TIRAR O PROJETO DO PAPEL?</span>
             
             <div class="max-w-4xl flex flex-col gap-4 items-center">
                 <h2 class="font-bebas text-5xl md:text-8xl text-white uppercase leading-none tracking-tight">
                     UMA IDEIA NO PAPEL NÃO MUDA O JOGO.
                 </h2>
-                
-
+                <p class="font-mono-tag text-zinc-400 text-xs md:text-sm uppercase tracking-wider">
+                    ENTRE EM CONTATO PARA PRODUÇÃO DE VÍDEOS, MOTION DESIGN & COLOR GRADING
+                </p>
             </div>
             
             <a href="https://api.whatsapp.com/send/?phone=5588999217184" target="_blank" class="btn-sticker text-base md:text-lg mt-2">
                 <i class="fab fa-whatsapp text-xl mr-2"></i> Tirar Meu Projeto Do Papel
             </a>
+
+            <!-- Links de Contato Direto -->
+            <div class="flex flex-wrap justify-center items-center gap-6 mt-4 text-xs font-mono-tag text-zinc-300">
+                <a href="https://api.whatsapp.com/send/?phone=5588999217184" target="_blank" class="hover:text-orange-500 transition flex items-center gap-2 bg-white/5 border border-white/15 px-4 py-2 rounded">
+                    <i class="fab fa-whatsapp text-orange-500 text-base"></i> (88) 99921-7184
+                </a>
+                <a href="mailto:ailtonsousa185@gmail.com" class="hover:text-orange-500 transition flex items-center gap-2 bg-white/5 border border-white/15 px-4 py-2 rounded">
+                    <i class="fas fa-envelope text-orange-500 text-base"></i> ailtonsousa185@gmail.com
+                </a>
+            </div>
 
             <p class="text-zinc-600 font-mono-tag text-[10px] uppercase tracking-[0.3em] mt-8">
                 &copy; 2026 AILTON S. — TODOS OS DIREITOS RESERVADOS
@@ -932,8 +1050,8 @@
 
     </main>
 
+    <!-- MODAL DE VÍDEO COM AUTOPLAY E SOM -->
     <div id="projectModal" onclick="closeOnOverlay(event)">
-        
         <div class="modal-content animate-zoom">
             <div class="close-modal-btn shadow-2xl" onclick="closeModal()">
                 <i class="fas fa-times"></i>
@@ -966,7 +1084,13 @@
             const frame = document.getElementById('videoFrame');
             const container = document.getElementById('videoContainer');
             
-            frame.src = videoUrl;
+            // Garante autoplay imediato, áudio ativo (sem mudo) e reprodução inline no celular
+            let url = videoUrl;
+            url = url.replace(/([?&])autoplay=[^&]*/g, '').replace(/([?&])muted=[^&]*/g, '').replace(/([?&])playsinline=[^&]*/g, '');
+            const sep = url.includes('?') ? '&' : '?';
+            url += sep + 'autoplay=1&muted=0&playsinline=1&autopause=0';
+            
+            frame.src = url;
 
             if(isVertical) {
                 container.classList.add('vertical');
